@@ -1,0 +1,686 @@
+{
+    "verification_summary": {
+        "overall_status": "FAIL",
+        "pass_rate": 0.4,
+        "verification_duration_minutes": 0.00024838333333333334,
+        "timestamp": "2025-08-25T00:31:53.220483",
+        "system_readiness": "Requires Attention"
+    },
+    "detailed_results": {
+        "connectivity": {
+            "control_electronics": {
+                "Q0_control": {
+                    "status": "PASS",
+                    "response_time_us": 2.0721471590650857,
+                    "signal_integrity": "GOOD"
+                },
+                "Q1_control": {
+                    "status": "PASS",
+                    "response_time_us": 2.107653956704455,
+                    "signal_integrity": "GOOD"
+                },
+                "Q2_control": {
+                    "status": "PASS",
+                    "response_time_us": 3.571672413695965,
+                    "signal_integrity": "GOOD"
+                },
+                "Q3_control": {
+                    "status": "PASS",
+                    "response_time_us": 4.433249068559309,
+                    "signal_integrity": "GOOD"
+                },
+                "Q4_control": {
+                    "status": "PASS",
+                    "response_time_us": 4.922614133542597,
+                    "signal_integrity": "GOOD"
+                },
+                "Q5_control": {
+                    "status": "PASS",
+                    "response_time_us": 3.70398346804475,
+                    "signal_integrity": "GOOD"
+                },
+                "Q6_control": {
+                    "status": "PASS",
+                    "response_time_us": 4.952407286115722,
+                    "signal_integrity": "GOOD"
+                },
+                "Q7_control": {
+                    "status": "PASS",
+                    "response_time_us": 2.8668910552987357,
+                    "signal_integrity": "GOOD"
+                },
+                "Q8_control": {
+                    "status": "PASS",
+                    "response_time_us": 2.31429410947701,
+                    "signal_integrity": "GOOD"
+                },
+                "Q9_control": {
+                    "status": "PASS",
+                    "response_time_us": 3.584170657040042,
+                    "signal_integrity": "GOOD"
+                }
+            },
+            "rf_connections": {
+                "Q0_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.8984853201970244,
+                    "reflection_dB": -22.00399144371078,
+                    "frequency_response": "FLAT"
+                },
+                "Q1_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.48788565781145,
+                    "reflection_dB": -33.996047206836764,
+                    "frequency_response": "FLAT"
+                },
+                "Q2_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.0718089747427184,
+                    "reflection_dB": -27.840063262655185,
+                    "frequency_response": "FLAT"
+                },
+                "Q3_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.368716473266611,
+                    "reflection_dB": -38.95067189941396,
+                    "frequency_response": "FLAT"
+                },
+                "Q4_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.3426606703821964,
+                    "reflection_dB": -32.384514223254556,
+                    "frequency_response": "FLAT"
+                },
+                "Q5_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -1.9956524406845446,
+                    "reflection_dB": -29.56837421515367,
+                    "frequency_response": "FLAT"
+                },
+                "Q6_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -1.6000604820119204,
+                    "reflection_dB": -38.973916963332584,
+                    "frequency_response": "FLAT"
+                },
+                "Q7_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.7189518026478416,
+                    "reflection_dB": -21.901393035206226,
+                    "frequency_response": "FLAT"
+                },
+                "Q8_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.1180574688057714,
+                    "reflection_dB": -35.48554646224626,
+                    "frequency_response": "FLAT"
+                },
+                "Q9_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.5607609582412225,
+                    "reflection_dB": -27.235590420692276,
+                    "frequency_response": "FLAT"
+                }
+            },
+            "power_supplies": {
+                "3V3_digital": {
+                    "status": "PASS",
+                    "voltage_accuracy": 1.0175746302752453,
+                    "noise_mV": 3.381201467632024,
+                    "load_regulation": 0.5373438734534292
+                },
+                "15V_analog": {
+                    "status": "PASS",
+                    "voltage_accuracy": 1.008944156035293,
+                    "noise_mV": 5.1644437661694695,
+                    "load_regulation": 0.6919418072846283
+                },
+                "minus15V_analog": {
+                    "status": "PASS",
+                    "voltage_accuracy": 1.0150374202329984,
+                    "noise_mV": 6.211457053488517,
+                    "load_regulation": 0.7718316103110415
+                },
+                "1V8_core": {
+                    "status": "PASS",
+                    "voltage_accuracy": 0.9837233237354223,
+                    "noise_mV": 8.173285280331086,
+                    "load_regulation": 0.20027493585985506
+                }
+            },
+            "timing_systems": {
+                "master_clock_10MHz": {
+                    "status": "PASS",
+                    "frequency_stability_ppm": 0.22694877232509142,
+                    "phase_noise_dBc": -105.73574326946384
+                },
+                "sample_clock_2GHz": {
+                    "status": "PASS",
+                    "jitter_ps": 118.13309852591541,
+                    "duty_cycle_percent": 50.80059790937849
+                }
+            },
+            "overall": {
+                "pass_rate": 1.0,
+                "status": "PASS"
+            }
+        },
+        "qubit_characterization": {
+            "Q0": {
+                "T1_us": 125.8757711229237,
+                "T1_pass": true,
+                "T2_star_us": 39.971591492110164,
+                "T2_star_pass": false,
+                "T2_echo_us": 175.0169062076667,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.006506083238748,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -240.70504641047125,
+                "overall_pass": false
+            },
+            "Q1": {
+                "T1_us": 88.80266290136414,
+                "T1_pass": false,
+                "T2_star_us": 83.43977790691608,
+                "T2_star_pass": true,
+                "T2_echo_us": 142.63513517413,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.104423958344241,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -261.0847532615391,
+                "overall_pass": false
+            },
+            "Q2": {
+                "T1_us": 153.8490908233331,
+                "T1_pass": true,
+                "T2_star_us": 63.39605266719847,
+                "T2_star_pass": true,
+                "T2_echo_us": 136.87728474446277,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.203943112815508,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -271.8461361561522,
+                "overall_pass": true
+            },
+            "Q3": {
+                "T1_us": 94.85307918215757,
+                "T1_pass": false,
+                "T2_star_us": 64.16359043965191,
+                "T2_star_pass": true,
+                "T2_echo_us": 169.76698393284616,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.2983760054269835,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -285.37762628161494,
+                "overall_pass": false
+            },
+            "Q4": {
+                "T1_us": 118.34256886853606,
+                "T1_pass": true,
+                "T2_star_us": 45.68638139845757,
+                "T2_star_pass": false,
+                "T2_echo_us": 124.61066056167306,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.411603798876286,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -287.53808363545954,
+                "overall_pass": false
+            },
+            "Q5": {
+                "T1_us": 131.77196747799624,
+                "T1_pass": true,
+                "T2_star_us": 62.371489554755364,
+                "T2_star_pass": true,
+                "T2_echo_us": 198.885437664042,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.495395331846177,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -281.9573416211455,
+                "overall_pass": true
+            },
+            "Q6": {
+                "T1_us": 115.09600940386875,
+                "T1_pass": true,
+                "T2_star_us": 88.98678925377192,
+                "T2_star_pass": true,
+                "T2_echo_us": 153.81054811838,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.599367528985373,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -250.1367485433762,
+                "overall_pass": true
+            },
+            "Q7": {
+                "T1_us": 152.82820315244288,
+                "T1_pass": true,
+                "T2_star_us": 73.68884810835509,
+                "T2_star_pass": true,
+                "T2_echo_us": 105.11319559815313,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.693140826482316,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -255.9932845033513,
+                "overall_pass": true
+            },
+            "Q8": {
+                "T1_us": 111.02614813392223,
+                "T1_pass": true,
+                "T2_star_us": 55.14552798471298,
+                "T2_star_pass": true,
+                "T2_echo_us": 222.8179912657848,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.801716161495209,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -262.12578463074493,
+                "overall_pass": true
+            },
+            "Q9": {
+                "T1_us": 108.66128122217218,
+                "T1_pass": true,
+                "T2_star_us": 63.52240843629996,
+                "T2_star_pass": true,
+                "T2_echo_us": 147.94128746671953,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.906378953848926,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -275.398648690189,
+                "overall_pass": true
+            },
+            "summary": {
+                "all_qubits_pass": false,
+                "average_T1_us": 120.11067822887169,
+                "average_T2_star_us": 64.03724572422296,
+                "qubit_count": 10,
+                "pass_count": 6
+            }
+        },
+        "gate_performance": {
+            "single_qubit_gates": {
+                "Q0_X": {
+                    "fidelity": 0.9974822216508935,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9775325772178757
+                },
+                "Q0_Y": {
+                    "fidelity": 1.0000040696251107,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9800039882326085
+                },
+                "Q0_Z": {
+                    "fidelity": 0.999178376456873,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9791948089277356
+                },
+                "Q0_H": {
+                    "fidelity": 0.999059759112376,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9790785639301285
+                },
+                "Q1_X": {
+                    "fidelity": 0.9968559702332245,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.97691885082856
+                },
+                "Q1_Y": {
+                    "fidelity": 0.9973665505795647,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9774192195679734
+                },
+                "Q1_Z": {
+                    "fidelity": 0.9984511104007311,
+                    "pass": false,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9784820881927164
+                },
+                "Q1_H": {
+                    "fidelity": 0.997336407912173,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9773896797539295
+                },
+                "Q2_X": {
+                    "fidelity": 0.9984573300740295,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9784881834725488
+                },
+                "Q2_Y": {
+                    "fidelity": 1.0004045426736117,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9803964518201395
+                },
+                "Q2_Z": {
+                    "fidelity": 0.9996016191581665,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9796095867750031
+                },
+                "Q2_H": {
+                    "fidelity": 0.9968310099190328,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9768943897206521
+                },
+                "Q3_X": {
+                    "fidelity": 0.9988746729694322,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9788971795100435
+                },
+                "Q3_Y": {
+                    "fidelity": 0.9986000311981118,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9786280305741496
+                },
+                "Q3_Z": {
+                    "fidelity": 0.9985085592738537,
+                    "pass": false,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9785383880883767
+                },
+                "Q3_H": {
+                    "fidelity": 0.9986188666462845,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9786464893133588
+                },
+                "Q4_X": {
+                    "fidelity": 0.9994035103456751,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9794154401387616
+                },
+                "Q4_Y": {
+                    "fidelity": 0.9985785381604675,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9786069673972582
+                },
+                "Q4_Z": {
+                    "fidelity": 1.0000201442720427,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9800197413866018
+                },
+                "Q4_H": {
+                    "fidelity": 0.9999636326132176,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9799643599609532
+                },
+                "Q5_X": {
+                    "fidelity": 0.9990853924015636,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9791036845535322
+                },
+                "Q5_Y": {
+                    "fidelity": 0.9997821203471546,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9797864779402116
+                },
+                "Q5_Z": {
+                    "fidelity": 1.000086857640153,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9800851204873499
+                },
+                "Q5_H": {
+                    "fidelity": 0.9979179919788824,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9779596321393048
+                },
+                "Q6_X": {
+                    "fidelity": 0.9983761116423309,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9784085894094843
+                },
+                "Q6_Y": {
+                    "fidelity": 0.9967115740984265,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9767773426164579
+                },
+                "Q6_Z": {
+                    "fidelity": 0.9987985807479897,
+                    "pass": false,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9788226091330299
+                },
+                "Q6_H": {
+                    "fidelity": 0.9977579765560994,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9778028170249774
+                },
+                "Q7_X": {
+                    "fidelity": 0.9978067809215958,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9778506453031639
+                },
+                "Q7_Y": {
+                    "fidelity": 1.0000841119816082,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.980082429741976
+                },
+                "Q7_Z": {
+                    "fidelity": 0.9998419416796331,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9798451028460404
+                },
+                "Q7_H": {
+                    "fidelity": 0.9991285322248405,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9791459615803437
+                },
+                "Q8_X": {
+                    "fidelity": 0.9979662435173428,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9780069186469958
+                },
+                "Q8_Y": {
+                    "fidelity": 0.999869221408075,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9798718369799134
+                },
+                "Q8_Z": {
+                    "fidelity": 1.000450310985046,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9804413047653451
+                },
+                "Q8_H": {
+                    "fidelity": 0.9995627888747308,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9795715330972362
+                },
+                "Q9_X": {
+                    "fidelity": 0.997821821124525,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9778653847020344
+                },
+                "Q9_Y": {
+                    "fidelity": 0.9977427880127419,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.977787932252487
+                },
+                "Q9_Z": {
+                    "fidelity": 1.0007566942378623,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.980741560353105
+                },
+                "Q9_H": {
+                    "fidelity": 0.9983869059756,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.978419167856088
+                }
+            },
+            "two_qubit_gates": {
+                "CNOT_Q0_Q1": {
+                    "fidelity": 0.9891781706683334,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8101032141590752
+                },
+                "CNOT_Q1_Q2": {
+                    "fidelity": 0.9895398257698569,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8961937874744169
+                },
+                "CNOT_Q2_Q3": {
+                    "fidelity": 0.9939029924787686,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.819098869812146
+                },
+                "CNOT_Q3_Q4": {
+                    "fidelity": 0.9874021112801681,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8779209759298858
+                },
+                "CNOT_Q5_Q6": {
+                    "fidelity": 0.9869259896384199,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8704859040608885
+                },
+                "CNOT_Q6_Q7": {
+                    "fidelity": 0.9959638694675936,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8935994443138495
+                },
+                "CNOT_Q7_Q8": {
+                    "fidelity": 0.9834898000366453,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8978022788320209
+                },
+                "CNOT_Q8_Q9": {
+                    "fidelity": 0.9896160257654953,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8130608330888986
+                },
+                "CNOT_Q0_Q5": {
+                    "fidelity": 0.9927869463146475,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8410786322088465
+                },
+                "CNOT_Q1_Q6": {
+                    "fidelity": 0.9883255321884419,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.9316969987035931
+                },
+                "CNOT_Q2_Q7": {
+                    "fidelity": 0.9896311838207116,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.909506968662141
+                },
+                "CNOT_Q3_Q8": {
+                    "fidelity": 0.9949716187062625,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8045298408084052
+                },
+                "CNOT_Q4_Q9": {
+                    "fidelity": 0.9954985142661151,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8006574149335655
+                }
+            },
+            "readout_performance": {
+                "Q0_readout": {
+                    "fidelity": 0.9661237420479423,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 23.603948618738613
+                },
+                "Q1_readout": {
+                    "fidelity": 0.9818005322012391,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 20.19915699545706
+                },
+                "Q2_readout": {
+                    "fidelity": 0.9573249512938057,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 23.540804006998894
+                },
+                "Q3_readout": {
+                    "fidelity": 0.9624866041507855,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 22.25998076356655
+                },
+                "Q4_readout": {
+                    "fidelity": 0.9732074351918716,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 22.238080055033965
+                },
+                "Q5_readout": {
+                    "fidelity": 0.9340019796052252,
+                    "pass": false,
+                    "readout_time_us": 1.0,
+                    "snr_db": 23.319448113808832
+                },
+                "Q6_readout": {
+                    "fidelity": 0.9848448225485676,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 24.498704852109086
+                },
+                "Q7_readout": {
+                    "fidelity": 0.9679480071501377,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 19.332576898992627
+                },
+                "Q8_readout": {
+                    "fidelity": 0.9577894245067633,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 19.424064917007478
+                },
+                "Q9_readout": {
+                    "fidelity": 0.951781594024384,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 18.552464972750915
+                }
+            },
+            "summary": {
+                "avg_single_qubit_fidelity": 0.9987882917407769,
+                "avg_two_qubit_fidelity": 0.9905563523385739,
+                "avg_readout_fidelity": 0.9637309092720722,
+                "all_gates_pass": 

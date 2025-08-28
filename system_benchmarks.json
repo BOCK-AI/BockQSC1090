@@ -1,0 +1,19 @@
+{
+    "system_overview": {
+        "total_qubits": 10,
+        "topology": "2x5 grid with nearest-neighbor coupling",
+        "qubit_type": "Transmon superconducting qubits"
+    },
+    "performance_summary": {
+        "avg_single_qubit_fidelity": 0.9997000499940005,
+        "avg_two_qubit_fidelity": 0.992004994005662,
+        "avg_readout_fidelity": 0.9499999999999998,
+        "avg_T1_us": 100.0,
+        "avg_T2_us": 50.0
+    },
+    "quantum_volume": {
+        "estimated_quantum_volume": 64,
+        "max_circuit_depth": 6,
+        "basis": "Simplified model based on gate fidelities"
+    }
+}

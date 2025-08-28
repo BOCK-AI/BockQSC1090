@@ -1,0 +1,93 @@
+{
+    "CNOT_Q0_Q1": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 0,
+        "target_qubit": 1
+    },
+    "CNOT_Q0_Q5": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 0,
+        "target_qubit": 5
+    },
+    "CNOT_Q1_Q2": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 1,
+        "target_qubit": 2
+    },
+    "CNOT_Q1_Q6": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 1,
+        "target_qubit": 6
+    },
+    "CNOT_Q2_Q3": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 2,
+        "target_qubit": 3
+    },
+    "CNOT_Q2_Q7": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 2,
+        "target_qubit": 7
+    },
+    "CNOT_Q3_Q4": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 3,
+        "target_qubit": 4
+    },
+    "CNOT_Q3_Q8": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 3,
+        "target_qubit": 8
+    },
+    "CNOT_Q4_Q9": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 4,
+        "target_qubit": 9
+    },
+    "CNOT_Q5_Q6": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 5,
+        "target_qubit": 6
+    },
+    "CNOT_Q6_Q7": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 6,
+        "target_qubit": 7
+    },
+    "CNOT_Q7_Q8": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 7,
+        "target_qubit": 8
+    },
+    "CNOT_Q8_Q9": {
+        "fidelity": 0.9920049940056623,
+        "gate_time_ns": 200.0,
+        "coupling_MHz": 20.0,
+        "control_qubit": 8,
+        "target_qubit": 9
+    }
+}

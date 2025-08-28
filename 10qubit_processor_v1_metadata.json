@@ -1,0 +1,23 @@
+{
+    "design_name": "10-Qubit Quantum Processor",
+    "qubit_count": 10,
+    "coupler_count": 13,
+    "readout_count": 10,
+    "chip_size": "20mm x 20mm",
+    "qubit_type": "Transmon Pocket",
+    "parameters": {
+        "qubit_params": {
+            "pad_width": "300um",
+            "pad_height": "300um",
+            "pad_gap": "20um",
+            "inductor_width": "4um",
+            "pocket_rise": "65um"
+        },
+        "coupling_params": {
+            "prime_width": "10um",
+            "prime_gap": "6um",
+            "second_width": "10um",
+            "second_gap": "6um"
+        }
+    }
+}

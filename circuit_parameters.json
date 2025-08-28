@@ -1,0 +1,82 @@
+{
+    "Q0": {
+        "frequency_01": 5.0,
+        "anharmonicity": -0.25,
+        "Ec_GHz": 0.25,
+        "Ej_GHz": 11.28125,
+        "C_total_fF": 4.8294597041955937e+20,
+        "L_junction_nH": 5.842441290453732e-17
+    },
+    "Q1": {
+        "frequency_01": 5.1,
+        "anharmonicity": -0.25,
+        "Ec_GHz": 0.25,
+        "Ej_GHz": 11.761249999999999,
+        "C_total_fF": 4.8294597041955937e+20,
+        "L_junction_nH": 5.603999643569449e-17
+    },
+    "Q2": {
+        "frequency_01": 5.2,
+        "anharmonicity": -0.25,
+        "Ec_GHz": 0.25,
+        "Ej_GHz": 12.25125,
+        "C_total_fF": 4.8294597041955937e+20,
+        "L_junction_nH": 5.3798625289608127e-17
+    },
+    "Q3": {
+        "frequency_01": 5.3,
+        "anharmonicity": -0.25,
+        "Ec_GHz": 0.25,
+        "Ej_GHz": 12.751249999999999,
+        "C_total_fF": 4.8294597041955937e+20,
+        "L_junction_nH": 5.168908209621109e-17
+    },
+    "Q4": {
+        "frequency_01": 5.4,
+        "anharmonicity": -0.25,
+        "Ec_GHz": 0.25,
+        "Ej_GHz": 13.261250000000002,
+        "C_total_fF": 4.8294597041955937e+20,
+        "L_junction_nH": 4.970122786911577e-17
+    },
+    "Q5": {
+        "frequency_01": 5.5,
+        "anharmonicity": -0.25,
+        "Ec_GHz": 0.25,
+        "Ej_GHz": 13.78125,
+        "C_total_fF": 4.8294597041955937e+20,
+        "L_junction_nH": 4.782587995133327e-17
+    },
+    "Q6": {
+        "frequency_01": 5.6,
+        "anharmonicity": -0.25,
+        "Ec_GHz": 0.25,
+        "Ej_GHz": 14.311249999999998,
+        "C_total_fF": 4.8294597041955937e+20,
+        "L_junction_nH": 4.605470577897191e-17
+    },
+    "Q7": {
+        "frequency_01": 5.7,
+        "anharmonicity": -0.25,
+        "Ec_GHz": 0.25,
+        "Ej_GHz": 14.85125,
+        "C_total_fF": 4.8294597041955937e+20,
+        "L_junction_nH": 4.438013016273456e-17
+    },
+    "Q8": {
+        "frequency_01": 5.8,
+        "anharmonicity": -0.25,
+        "Ec_GHz": 0.25,
+        "Ej_GHz": 15.40125,
+        "C_total_fF": 4.8294597041955937e+20,
+        "L_junction_nH": 4.279525415659843e-17
+    },
+    "Q9": {
+        "frequency_01": 5.9,
+        "anharmonicity": -0.25,
+        "Ec_GHz": 0.25,
+        "Ej_GHz": 15.961250000000001,
+        "C_total_fF": 4.8294597041955937e+20,
+        "L_junction_nH": 4.129378388781026e-17
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "Q0": {
+        "X_gate_fidelity": 0.9997000499940005,
+        "Y_gate_fidelity": 0.9997000499940005,
+        "Z_gate_fidelity": 1.0097000499940005,
+        "H_gate_fidelity": 0.9947000499940005,
+        "gate_time_ns": 20.0
+    },
+    "Q1": {
+        "X_gate_fidelity": 0.9997000499940005,
+        "Y_gate_fidelity": 0.9997000499940005,
+        "Z_gate_fidelity": 1.0097000499940005,
+        "H_gate_fidelity": 0.9947000499940005,
+        "gate_time_ns": 20.0
+    },
+    "Q2": {
+        "X_gate_fidelity": 0.9997000499940005,
+        "Y_gate_fidelity": 0.9997000499940005,
+        "Z_gate_fidelity": 1.0097000499940005,
+        "H_gate_fidelity": 0.9947000499940005,
+        "gate_time_ns": 20.0
+    },
+    "Q3": {
+        "X_gate_fidelity": 0.9997000499940005,
+        "Y_gate_fidelity": 0.9997000499940005,
+        "Z_gate_fidelity": 1.0097000499940005,
+        "H_gate_fidelity": 0.9947000499940005,
+        "gate_time_ns": 20.0
+    },
+    "Q4": {
+        "X_gate_fidelity": 0.9997000499940005,
+        "Y_gate_fidelity": 0.9997000499940005,
+        "Z_gate_fidelity": 1.0097000499940005,
+        "H_gate_fidelity": 0.9947000499940005,
+        "gate_time_ns": 20.0
+    },
+    "Q5": {
+        "X_gate_fidelity": 0.9997000499940005,
+        "Y_gate_fidelity": 0.9997000499940005,
+        "Z_gate_fidelity": 1.0097000499940005,
+        "H_gate_fidelity": 0.9947000499940005,
+        "gate_time_ns": 20.0
+    },
+    "Q6": {
+        "X_gate_fidelity": 0.9997000499940005,
+        "Y_gate_fidelity": 0.9997000499940005,
+        "Z_gate_fidelity": 1.0097000499940005,
+        "H_gate_fidelity": 0.9947000499940005,
+        "gate_time_ns": 20.0
+    },
+    "Q7": {
+        "X_gate_fidelity": 0.9997000499940005,
+        "Y_gate_fidelity": 0.9997000499940005,
+        "Z_gate_fidelity": 1.0097000499940005,
+        "H_gate_fidelity": 0.9947000499940005,
+        "gate_time_ns": 20.0
+    },
+    "Q8": {
+        "X_gate_fidelity": 0.9997000499940005,
+        "Y_gate_fidelity": 0.9997000499940005,
+        "Z_gate_fidelity": 1.0097000499940005,
+        "H_gate_fidelity": 0.9947000499940005,
+        "gate_time_ns": 20.0
+    },
+    "Q9": {
+        "X_gate_fidelity": 0.9997000499940005,
+        "Y_gate_fidelity": 0.9997000499940005,
+        "Z_gate_fidelity": 1.0097000499940005,
+        "H_gate_fidelity": 0.9947000499940005,
+        "gate_time_ns": 20.0
+    }
+}

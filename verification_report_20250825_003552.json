@@ -1,0 +1,1537 @@
+{
+    "verification_summary": {
+        "overall_status": "FAIL",
+        "pass_rate": 0.4,
+        "verification_duration_minutes": 0.0,
+        "timestamp": "2025-08-25T00:35:52.981286",
+        "system_readiness": "Requires Attention"
+    },
+    "detailed_results": {
+        "connectivity": {
+            "control_electronics": {
+                "Q0_control": {
+                    "status": "PASS",
+                    "response_time_us": 4.567970175199768,
+                    "signal_integrity": "GOOD"
+                },
+                "Q1_control": {
+                    "status": "PASS",
+                    "response_time_us": 1.182663701533798,
+                    "signal_integrity": "GOOD"
+                },
+                "Q2_control": {
+                    "status": "PASS",
+                    "response_time_us": 2.358954628495324,
+                    "signal_integrity": "GOOD"
+                },
+                "Q3_control": {
+                    "status": "PASS",
+                    "response_time_us": 2.2649261907691622,
+                    "signal_integrity": "GOOD"
+                },
+                "Q4_control": {
+                    "status": "PASS",
+                    "response_time_us": 4.787612763647071,
+                    "signal_integrity": "GOOD"
+                },
+                "Q5_control": {
+                    "status": "PASS",
+                    "response_time_us": 4.122421071315468,
+                    "signal_integrity": "GOOD"
+                },
+                "Q6_control": {
+                    "status": "PASS",
+                    "response_time_us": 2.5858729292216274,
+                    "signal_integrity": "GOOD"
+                },
+                "Q7_control": {
+                    "status": "PASS",
+                    "response_time_us": 4.198737497399469,
+                    "signal_integrity": "GOOD"
+                },
+                "Q8_control": {
+                    "status": "PASS",
+                    "response_time_us": 1.3980978508743558,
+                    "signal_integrity": "GOOD"
+                },
+                "Q9_control": {
+                    "status": "PASS",
+                    "response_time_us": 3.25174302370348,
+                    "signal_integrity": "GOOD"
+                }
+            },
+            "rf_connections": {
+                "Q0_rf": {
+                    "status": "FAIL",
+                    "insertion_loss_dB": -1.4245795391088931,
+                    "reflection_dB": -38.48155836971342,
+                    "frequency_response": "DISTORTED"
+                },
+                "Q1_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.793904342374688,
+                    "reflection_dB": -29.355491503111892,
+                    "frequency_response": "FLAT"
+                },
+                "Q2_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -1.677706772519793,
+                    "reflection_dB": -25.35754155625669,
+                    "frequency_response": "FLAT"
+                },
+                "Q3_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -1.3198783786334125,
+                    "reflection_dB": -26.447969339366434,
+                    "frequency_response": "FLAT"
+                },
+                "Q4_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -1.5565895039288533,
+                    "reflection_dB": -38.12499645507252,
+                    "frequency_response": "FLAT"
+                },
+                "Q5_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.847465659489349,
+                    "reflection_dB": -32.35746291989238,
+                    "frequency_response": "FLAT"
+                },
+                "Q6_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.130353436191265,
+                    "reflection_dB": -22.07978370933366,
+                    "frequency_response": "FLAT"
+                },
+                "Q7_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.1033012288552992,
+                    "reflection_dB": -36.03135571232648,
+                    "frequency_response": "FLAT"
+                },
+                "Q8_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -1.2688462440647617,
+                    "reflection_dB": -28.334102903864704,
+                    "frequency_response": "FLAT"
+                },
+                "Q9_rf": {
+                    "status": "PASS",
+                    "insertion_loss_dB": -2.4669490763151347,
+                    "reflection_dB": -26.008752559126194,
+                    "frequency_response": "FLAT"
+                }
+            },
+            "power_supplies": {
+                "3V3_digital": {
+                    "status": "PASS",
+                    "voltage_accuracy": 0.9904377936351697,
+                    "noise_mV": 2.9803596281997784,
+                    "load_regulation": 0.6621823399464879
+                },
+                "15V_analog": {
+                    "status": "PASS",
+                    "voltage_accuracy": 0.9814165561912985,
+                    "noise_mV": 6.451300255397399,
+                    "load_regulation": 0.12041294734969482
+                },
+                "minus15V_analog": {
+                    "status": "PASS",
+                    "voltage_accuracy": 0.98561655440284,
+                    "noise_mV": 6.865929723450354,
+                    "load_regulation": 0.9258743233984881
+                },
+                "1V8_core": {
+                    "status": "PASS",
+                    "voltage_accuracy": 0.9846491708085856,
+                    "noise_mV": 6.00781531209397,
+                    "load_regulation": 0.178120322662915
+                }
+            },
+            "timing_systems": {
+                "master_clock_10MHz": {
+                    "status": "PASS",
+                    "frequency_stability_ppm": 0.185515627868448,
+                    "phase_noise_dBc": -117.56579239511214
+                },
+                "sample_clock_2GHz": {
+                    "status": "PASS",
+                    "jitter_ps": 147.109641769759,
+                    "duty_cycle_percent": 49.36441248232763
+                }
+            },
+            "overall": {
+                "pass_rate": 0.9615384615384616,
+                "status": "PASS"
+            }
+        },
+        "qubit_characterization": {
+            "Q0": {
+                "T1_us": 119.38245701123824,
+                "T1_pass": true,
+                "T2_star_us": 67.31249461092388,
+                "T2_star_pass": true,
+                "T2_echo_us": 162.51673786141944,
+                "T2_echo_pass": true,
+                "frequency_GHz": 4.999828521389267,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -221.68237011805266,
+                "overall_pass": true
+            },
+            "Q1": {
+                "T1_us": 144.33765220018012,
+                "T1_pass": true,
+                "T2_star_us": 45.837092500443724,
+                "T2_star_pass": false,
+                "T2_echo_us": 196.7004035386564,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.095791795025795,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -260.9318953192254,
+                "overall_pass": false
+            },
+            "Q2": {
+                "T1_us": 109.92994015286737,
+                "T1_pass": true,
+                "T2_star_us": 69.00556971936157,
+                "T2_star_pass": true,
+                "T2_echo_us": 177.28623678497684,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.205111738546818,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -283.00049589821697,
+                "overall_pass": true
+            },
+            "Q3": {
+                "T1_us": 102.5392189401431,
+                "T1_pass": true,
+                "T2_star_us": 67.60828531232657,
+                "T2_star_pass": true,
+                "T2_echo_us": 137.69038572124813,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.3015647605539415,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -262.23598090271616,
+                "overall_pass": true
+            },
+            "Q4": {
+                "T1_us": 149.0094769628412,
+                "T1_pass": true,
+                "T2_star_us": 32.51960581160604,
+                "T2_star_pass": false,
+                "T2_echo_us": 154.03695016011605,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.40652809113356,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -264.0654317134802,
+                "overall_pass": false
+            },
+            "Q5": {
+                "T1_us": 87.57091534028778,
+                "T1_pass": false,
+                "T2_star_us": 66.29048057425327,
+                "T2_star_pass": true,
+                "T2_echo_us": 122.15404271578991,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.496532638446582,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -238.95661657390792,
+                "overall_pass": false
+            },
+            "Q6": {
+                "T1_us": 169.33699269578165,
+                "T1_pass": true,
+                "T2_star_us": 55.96299681594473,
+                "T2_star_pass": true,
+                "T2_echo_us": 134.3282388900859,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.60003421783452,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -247.74519854846744,
+                "overall_pass": true
+            },
+            "Q7": {
+                "T1_us": 118.78666493940605,
+                "T1_pass": true,
+                "T2_star_us": 47.230565913020286,
+                "T2_star_pass": false,
+                "T2_echo_us": 181.2687287349455,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.697160897470505,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -249.444044052346,
+                "overall_pass": false
+            },
+            "Q8": {
+                "T1_us": 119.86502415317864,
+                "T1_pass": true,
+                "T2_star_us": 42.743518576691606,
+                "T2_star_pass": false,
+                "T2_echo_us": 106.90323818491869,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.8041515457235215,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -234.74976801238876,
+                "overall_pass": false
+            },
+            "Q9": {
+                "T1_us": 102.6164556821319,
+                "T1_pass": true,
+                "T2_star_us": 39.51873750609269,
+                "T2_star_pass": false,
+                "T2_echo_us": 145.10618141818694,
+                "T2_echo_pass": true,
+                "frequency_GHz": 5.900784226171049,
+                "frequency_pass": true,
+                "anharmonicity_MHz": -249.79455404852735,
+                "overall_pass": false
+            },
+            "summary": {
+                "all_qubits_pass": false,
+                "average_T1_us": 122.33747980780558,
+                "average_T2_star_us": 53.402934734066434,
+                "qubit_count": 10,
+                "pass_count": 4
+            }
+        },
+        "gate_performance": {
+            "single_qubit_gates": {
+                "Q0_X": {
+                    "fidelity": 0.9990309516981973,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9790503326642334
+                },
+                "Q0_Y": {
+                    "fidelity": 0.9975833206249101,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9776316542124118
+                },
+                "Q0_Z": {
+                    "fidelity": 0.9994046338642423,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9794165411869574
+                },
+                "Q0_H": {
+                    "fidelity": 0.9987278215964233,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9787532651644948
+                },
+                "Q1_X": {
+                    "fidelity": 0.9978478802427065,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9778909226378524
+                },
+                "Q1_Y": {
+                    "fidelity": 1.0003945750551901,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9803866835540863
+                },
+                "Q1_Z": {
+                    "fidelity": 0.9995465806646583,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9795556490513652
+                },
+                "Q1_H": {
+                    "fidelity": 0.9992439666976106,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9792590873636584
+                },
+                "Q2_X": {
+                    "fidelity": 0.998620350823997,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9786479438075171
+                },
+                "Q2_Y": {
+                    "fidelity": 0.9983896324232935,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9784218397748276
+                },
+                "Q2_Z": {
+                    "fidelity": 0.9996150569845262,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9796227558448357
+                },
+                "Q2_H": {
+                    "fidelity": 0.999042460398307,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9790616111903409
+                },
+                "Q3_X": {
+                    "fidelity": 0.9991864129162512,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9792026846579261
+                },
+                "Q3_Y": {
+                    "fidelity": 0.9976721110500671,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9777186688290658
+                },
+                "Q3_Z": {
+                    "fidelity": 1.0003255525743382,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9803190415228514
+                },
+                "Q3_H": {
+                    "fidelity": 0.9979072972965706,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9779491513506391
+                },
+                "Q4_X": {
+                    "fidelity": 0.9973213836514124,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9773749559783842
+                },
+                "Q4_Y": {
+                    "fidelity": 0.9998592708185746,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9798620854022031
+                },
+                "Q4_Z": {
+                    "fidelity": 0.9985464340563981,
+                    "pass": false,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9785755053752702
+                },
+                "Q4_H": {
+                    "fidelity": 0.9975388970765932,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9775881191350613
+                },
+                "Q5_X": {
+                    "fidelity": 0.9981493763889085,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9781863888611304
+                },
+                "Q5_Y": {
+                    "fidelity": 0.9982482811440917,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9782833155212098
+                },
+                "Q5_Z": {
+                    "fidelity": 0.9994888336871011,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.979499057013359
+                },
+                "Q5_H": {
+                    "fidelity": 0.9998787616061546,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9798811863740315
+                },
+                "Q6_X": {
+                    "fidelity": 0.9988606526395714,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9788834395867799
+                },
+                "Q6_Y": {
+                    "fidelity": 0.998632958711792,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9786602995375562
+                },
+                "Q6_Z": {
+                    "fidelity": 1.0000252730509285,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9800247675899099
+                },
+                "Q6_H": {
+                    "fidelity": 0.9986490273083977,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9786760467622297
+                },
+                "Q7_X": {
+                    "fidelity": 1.0001627412440508,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9801594864191697
+                },
+                "Q7_Y": {
+                    "fidelity": 0.9995797011218488,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9795881070994118
+                },
+                "Q7_Z": {
+                    "fidelity": 0.9997911430913922,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9797953202295643
+                },
+                "Q7_H": {
+                    "fidelity": 0.997874294095658,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9779168082137448
+                },
+                "Q8_X": {
+                    "fidelity": 1.0000722563608606,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9800708112336434
+                },
+                "Q8_Y": {
+                    "fidelity": 0.996833862752782,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9768971854977263
+                },
+                "Q8_Z": {
+                    "fidelity": 1.0003956560063094,
+                    "pass": true,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9803877428861832
+                },
+                "Q8_H": {
+                    "fidelity": 0.9977213288236322,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.9777669022471596
+                },
+                "Q9_X": {
+                    "fidelity": 1.000433878627704,
+                    "pass": true,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.98042520105515
+                },
+                "Q9_Y": {
+                    "fidelity": 0.998833801414901,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.978857125386603
+                },
+                "Q9_Z": {
+                    "fidelity": 0.9970791104202029,
+                    "pass": false,
+                    "gate_time_ns": 0.0,
+                    "process_fidelity": 0.9771375282117989
+                },
+                "Q9_H": {
+                    "fidelity": 0.9988404505047103,
+                    "pass": false,
+                    "gate_time_ns": 20.0,
+                    "process_fidelity": 0.978863641494616
+                }
+            },
+            "two_qubit_gates": {
+                "CNOT_Q0_Q1": {
+                    "fidelity": 0.9948376232084671,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.9001674860265507
+                },
+                "CNOT_Q1_Q2": {
+                    "fidelity": 0.9917194709492236,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8094165988734955
+                },
+                "CNOT_Q2_Q3": {
+                    "fidelity": 0.9887438801993561,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8418343477913466
+                },
+                "CNOT_Q3_Q4": {
+                    "fidelity": 0.9919068755679531,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8979935943009619
+                },
+                "CNOT_Q5_Q6": {
+                    "fidelity": 0.9894965663752798,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.9997087156906997
+                },
+                "CNOT_Q6_Q7": {
+                    "fidelity": 0.9866302128965492,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.9581541366745907
+                },
+                "CNOT_Q7_Q8": {
+                    "fidelity": 0.9872998000228798,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.9484086574926629
+                },
+                "CNOT_Q8_Q9": {
+                    "fidelity": 0.9937146738283359,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.995116818472379
+                },
+                "CNOT_Q0_Q5": {
+                    "fidelity": 0.995332501723187,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8593271791959629
+                },
+                "CNOT_Q1_Q6": {
+                    "fidelity": 0.9929346203622054,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.8839621082117544
+                },
+                "CNOT_Q2_Q7": {
+                    "fidelity": 0.9892467223137518,
+                    "pass": false,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.9798539950783003
+                },
+                "CNOT_Q3_Q8": {
+                    "fidelity": 0.9932744582085323,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.9973613794132591
+                },
+                "CNOT_Q4_Q9": {
+                    "fidelity": 0.9912437564137815,
+                    "pass": true,
+                    "gate_time_ns": 200.0,
+                    "entangling_power": 0.9441292810127672
+                }
+            },
+            "readout_performance": {
+                "Q0_readout": {
+                    "fidelity": 0.9644834717687849,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 15.468961119996337
+                },
+                "Q1_readout": {
+                    "fidelity": 0.9500370374517023,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 24.690571868444867
+                },
+                "Q2_readout": {
+                    "fidelity": 0.9570343933477309,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 22.005735413573618
+                },
+                "Q3_readout": {
+                    "fidelity": 0.9527987977241513,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 15.302898022429295
+                },
+                "Q4_readout": {
+                    "fidelity": 0.9440349289838736,
+                    "pass": false,
+                    "readout_time_us": 1.0,
+                    "snr_db": 18.070441480482323
+                },
+                "Q5_readout": {
+                    "fidelity": 0.9458249888377103,
+                    "pass": false,
+                    "readout_time_us": 1.0,
+                    "snr_db": 15.650389375614896
+                },
+                "Q6_readout": {
+                    "fidelity": 0.9687396194771308,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 17.75565557731626
+                },
+                "Q7_readout": {
+                    "fidelity": 0.9383896288862769,
+                    "pass": false,
+                    "readout_time_us": 1.0,
+                    "snr_db": 22.726982287869202
+                },
+                "Q8_readout": {
+                    "fidelity": 0.9819535884037858,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 21.040961311253966
+                },
+                "Q9_readout": {
+                    "fidelity": 0.9647250909653724,
+                    "pass": true,
+                    "readout_time_us": 1.0,
+                    "snr_db": 20.47376476214577
+                }
+            },
+            "summary": {
+                "avg_single_qubit_fidelity": 0.9988838994878815,
+                "avg_two_qubit_fidelity": 0.9912600893899618,
+                "avg_readout_fidelity": 0.9568021545846518,
+                "all_gates_pass": false
+            }
+        },
+        "timing": {
+            "pulse_timing_accuracy": {
+                "Q0": {
+                    "timing_error_ns": -0.5932201178309531,
+                    "pass": true,
+                    "absolute_error_ns": 0.5932201178309531
+                },
+                "Q1": {
+                    "timing_error_ns": -0.6273319179534266,
+                    "pass": true,
+                    "absolute_error_ns": 0.6273319179534266
+                },
+                "Q2": {
+                    "timing_error_ns": -0.9456022039550679,
+                    "pass": true,
+                    "absolute_error_ns": 0.9456022039550679
+                },
+                "Q3": {
+                    "timing_error_ns": 0.11956634596123904,
+                    "pass": true,
+                    "absolute_error_ns": 0.11956634596123904
+                },
+                "Q4": {
+                    "timing_error_ns": 0.8272709466162819,
+                    "pass": true,
+                    "absolute_error_ns": 0.8272709466162819
+                },
+                "Q5": {
+                    "timing_error_ns": 0.14896601323516015,
+                    "pass": true,
+                    "absolute_error_ns": 0.14896601323516015
+                },
+                "Q6": {
+                    "timing_error_ns": -0.05580163635048962,
+                    "pass": true,
+                    "absolute_error_ns": 0.05580163635048962
+                },
+                "Q7": {
+                    "timing_error_ns": -0.11127045362793192,
+                    "pass": true,
+                    "absolute_error_ns": 0.11127045362793192
+                },
+                "Q8": {
+                    "timing_error_ns": 0.08262343260062727,
+                    "pass": true,
+                    "absolute_error_ns": 0.08262343260062727
+                },
+                "Q9": {
+                    "timing_error_ns": 0.7054762559925494,
+                    "pass": true,
+                    "absolute_error_ns": 0.7054762559925494
+                }
+            },
+            "synchronization_accuracy": {
+                "Q0_Q1": {
+                    "sync_error_ns": -0.044504879857034906,
+                    "pass": true,
+                    "absolute_error_ps": 44.50487985703491
+                },
+                "Q1_Q2": {
+                    "sync_error_ns": 0.0036871349978235685,
+                    "pass": true,
+                    "absolute_error_ps": 3.6871349978235686
+                },
+                "Q2_Q3": {
+                    "sync_error_ns": -0.04648719872006088,
+                    "pass": true,
+                    "absolute_error_ps": 46.48719872006088
+                },
+                "Q3_Q4": {
+                    "sync_error_ns": 0.08178497948761082,
+                    "pass": true,
+                    "absolute_error_ps": 81.78497948761083
+                },
+                "Q5_Q6": {
+                    "sync_error_ns": -0.03783112137016432,
+                    "pass": true,
+                    "absolute_error_ps": 37.83112137016432
+                },
+                "Q6_Q7": {
+                    "sync_error_ns": 0.0258127484448923,
+                    "pass": true,
+                    "absolute_error_ps": 25.8127484448923
+                },
+                "Q7_Q8": {
+                    "sync_error_ns": 0.0095674072718894,
+                    "pass": true,
+                    "absolute_error_ps": 9.5674072718894
+                },
+                "Q8_Q9": {
+                    "sync_error_ns": 0.030789823743940115,
+                    "pass": true,
+                    "absolute_error_ps": 30.789823743940115
+                }
+            },
+            "jitter_measurements": {
+                "master_10MHz": {
+                    "jitter_ps": 34.05083269044454,
+                    "pass": true,
+                    "specification_ps": 100.0
+                },
+                "sample_2GHz": {
+                    "jitter_ps": 109.96085172423417,
+                    "pass": false,
+                    "specification_ps": 100.0
+                },
+                "local_oscillators": {
+                    "jitter_ps": 96.80940452327754,
+                    "pass": true,
+                    "specification_ps": 100.0
+                }
+            },
+            "overall": {
+                "all_timing_pass": false,
+                "max_pulse_timing_error_ns": 0.9456022039550679,
+                "max_sync_error_ps": 81.78497948761083,
+                "max_jitter_ps": 109.96085172423417
+            }
+        },
+        "crosstalk": {
+            "qubit_crosstalk": {
+                "Q0_to_Q1": {
+                    "crosstalk_db": -52.79973567777524,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q0_to_Q2": {
+                    "crosstalk_db": -55.11346693592071,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q0_to_Q3": {
+                    "crosstalk_db": -68.64548297545177,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q0_to_Q4": {
+                    "crosstalk_db": -77.28444750723128,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q0_to_Q5": {
+                    "crosstalk_db": -93.87045292256454,
+                    "pass": true,
+                    "distance": 5
+                },
+                "Q0_to_Q6": {
+                    "crosstalk_db": -97.8396620634626,
+                    "pass": true,
+                    "distance": 6
+                },
+                "Q0_to_Q7": {
+                    "crosstalk_db": -112.33002343626225,
+                    "pass": true,
+                    "distance": 7
+                },
+                "Q0_to_Q8": {
+                    "crosstalk_db": -123.83916598009111,
+                    "pass": true,
+                    "distance": 8
+                },
+                "Q0_to_Q9": {
+                    "crosstalk_db": -122.09790689677763,
+                    "pass": true,
+                    "distance": 9
+                },
+                "Q1_to_Q0": {
+                    "crosstalk_db": -52.22792916379481,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q1_to_Q2": {
+                    "crosstalk_db": -52.082076284998585,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q1_to_Q3": {
+                    "crosstalk_db": -64.91653666853242,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q1_to_Q4": {
+                    "crosstalk_db": -66.96060090738077,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q1_to_Q5": {
+                    "crosstalk_db": -81.01993929546806,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q1_to_Q6": {
+                    "crosstalk_db": -86.87093421691257,
+                    "pass": true,
+                    "distance": 5
+                },
+                "Q1_to_Q7": {
+                    "crosstalk_db": -103.56337042214521,
+                    "pass": true,
+                    "distance": 6
+                },
+                "Q1_to_Q8": {
+                    "crosstalk_db": -115.1063508018657,
+                    "pass": true,
+                    "distance": 7
+                },
+                "Q1_to_Q9": {
+                    "crosstalk_db": -121.82180356584219,
+                    "pass": true,
+                    "distance": 8
+                },
+                "Q2_to_Q0": {
+                    "crosstalk_db": -57.98894212906911,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q2_to_Q1": {
+                    "crosstalk_db": -49.79829639611339,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q2_to_Q3": {
+                    "crosstalk_db": -50.23636663141481,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q2_to_Q4": {
+                    "crosstalk_db": -62.5005586604713,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q2_to_Q5": {
+                    "crosstalk_db": -70.36710403343032,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q2_to_Q6": {
+                    "crosstalk_db": -77.94704602414798,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q2_to_Q7": {
+                    "crosstalk_db": -95.00869409783222,
+                    "pass": true,
+                    "distance": 5
+                },
+                "Q2_to_Q8": {
+                    "crosstalk_db": -99.31512060556632,
+                    "pass": true,
+                    "distance": 6
+                },
+                "Q2_to_Q9": {
+                    "crosstalk_db": -109.87437361209757,
+                    "pass": true,
+                    "distance": 7
+                },
+                "Q3_to_Q0": {
+                    "crosstalk_db": -74.08851387340053,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q3_to_Q1": {
+                    "crosstalk_db": -58.96298814506867,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q3_to_Q2": {
+                    "crosstalk_db": -48.049516062292206,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q3_to_Q4": {
+                    "crosstalk_db": -54.54294706504125,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q3_to_Q5": {
+                    "crosstalk_db": -62.63644624108173,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q3_to_Q6": {
+                    "crosstalk_db": -72.09604890547661,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q3_to_Q7": {
+                    "crosstalk_db": -80.21562911231504,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q3_to_Q8": {
+                    "crosstalk_db": -93.50921076348429,
+                    "pass": true,
+                    "distance": 5
+                },
+                "Q3_to_Q9": {
+                    "crosstalk_db": -100.99386587853856,
+                    "pass": true,
+                    "distance": 6
+                },
+                "Q4_to_Q0": {
+                    "crosstalk_db": -79.30703435943725,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q4_to_Q1": {
+                    "crosstalk_db": -67.8136653770189,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q4_to_Q2": {
+                    "crosstalk_db": -62.983502327751815,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q4_to_Q3": {
+                    "crosstalk_db": -48.323419410093365,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q4_to_Q5": {
+                    "crosstalk_db": -50.49568789118474,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q4_to_Q6": {
+                    "crosstalk_db": -56.38602636698862,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q4_to_Q7": {
+                    "crosstalk_db": -66.55424330035405,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q4_to_Q8": {
+                    "crosstalk_db": -80.778451393335,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q4_to_Q9": {
+                    "crosstalk_db": -93.57794156666147,
+                    "pass": true,
+                    "distance": 5
+                },
+                "Q5_to_Q0": {
+                    "crosstalk_db": -87.44786035493844,
+                    "pass": true,
+                    "distance": 5
+                },
+                "Q5_to_Q1": {
+                    "crosstalk_db": -86.00776740606047,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q5_to_Q2": {
+                    "crosstalk_db": -71.11541914802297,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q5_to_Q3": {
+                    "crosstalk_db": -59.74186351754662,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q5_to_Q4": {
+                    "crosstalk_db": -49.95670805253064,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q5_to_Q6": {
+                    "crosstalk_db": -49.844870982763624,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q5_to_Q7": {
+                    "crosstalk_db": -64.60231387813609,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q5_to_Q8": {
+                    "crosstalk_db": -63.88669015272787,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q5_to_Q9": {
+                    "crosstalk_db": -77.16349420722405,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q6_to_Q0": {
+                    "crosstalk_db": -101.58665890709071,
+                    "pass": true,
+                    "distance": 6
+                },
+                "Q6_to_Q1": {
+                    "crosstalk_db": -92.56791986026263,
+                    "pass": true,
+                    "distance": 5
+                },
+                "Q6_to_Q2": {
+                    "crosstalk_db": -77.18963596567565,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q6_to_Q3": {
+                    "crosstalk_db": -72.28309089242872,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q6_to_Q4": {
+                    "crosstalk_db": -59.95282122131889,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q6_to_Q5": {
+                    "crosstalk_db": -50.025056866278476,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q6_to_Q7": {
+                    "crosstalk_db": -51.5696494580675,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q6_to_Q8": {
+                    "crosstalk_db": -61.007770612536476,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q6_to_Q9": {
+                    "crosstalk_db": -66.75352286000371,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q7_to_Q0": {
+                    "crosstalk_db": -106.09771970468263,
+                    "pass": true,
+                    "distance": 7
+                },
+                "Q7_to_Q1": {
+                    "crosstalk_db": -99.87275881598093,
+                    "pass": true,
+                    "distance": 6
+                },
+                "Q7_to_Q2": {
+                    "crosstalk_db": -91.9515280801477,
+                    "pass": true,
+                    "distance": 5
+                },
+                "Q7_to_Q3": {
+                    "crosstalk_db": -81.14895597006205,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q7_to_Q4": {
+                    "crosstalk_db": -68.40096884667521,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q7_to_Q5": {
+                    "crosstalk_db": -62.71463316859034,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q7_to_Q6": {
+                    "crosstalk_db": -52.86580810835431,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q7_to_Q8": {
+                    "crosstalk_db": -52.768575747076326,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q7_to_Q9": {
+                    "crosstalk_db": -61.86255267221387,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q8_to_Q0": {
+                    "crosstalk_db": -115.15472496700944,
+                    "pass": true,
+                    "distance": 8
+                },
+                "Q8_to_Q1": {
+                    "crosstalk_db": -111.19654817738136,
+                    "pass": true,
+                    "distance": 7
+                },
+                "Q8_to_Q2": {
+                    "crosstalk_db": -100.43965314291968,
+                    "pass": true,
+                    "distance": 6
+                },
+                "Q8_to_Q3": {
+                    "crosstalk_db": -85.27537021942328,
+                    "pass": true,
+                    "distance": 5
+                },
+                "Q8_to_Q4": {
+                    "crosstalk_db": -81.31536744939247,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q8_to_Q5": {
+                    "crosstalk_db": -70.67701630558436,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q8_to_Q6": {
+                    "crosstalk_db": -63.054586560795585,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q8_to_Q7": {
+                    "crosstalk_db": -48.50886874281752,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q8_to_Q9": {
+                    "crosstalk_db": -48.27272822155757,
+                    "pass": true,
+                    "distance": 1
+                },
+                "Q9_to_Q0": {
+                    "crosstalk_db": -136.78313444380532,
+                    "pass": true,
+                    "distance": 9
+                },
+                "Q9_to_Q1": {
+                    "crosstalk_db": -123.14181217751562,
+                    "pass": true,
+                    "distance": 8
+                },
+                "Q9_to_Q2": {
+                    "crosstalk_db": -109.70374102687178,
+                    "pass": true,
+                    "distance": 7
+                },
+                "Q9_to_Q3": {
+                    "crosstalk_db": -103.17030443016964,
+                    "pass": true,
+                    "distance": 6
+                },
+                "Q9_to_Q4": {
+                    "crosstalk_db": -89.73681444320553,
+                    "pass": true,
+                    "distance": 5
+                },
+                "Q9_to_Q5": {
+                    "crosstalk_db": -75.82740043085964,
+                    "pass": true,
+                    "distance": 4
+                },
+                "Q9_to_Q6": {
+                    "crosstalk_db": -74.03861917758888,
+                    "pass": true,
+                    "distance": 3
+                },
+                "Q9_to_Q7": {
+                    "crosstalk_db": -57.54117678042237,
+                    "pass": true,
+                    "distance": 2
+                },
+                "Q9_to_Q8": {
+                    "crosstalk_db": -51.44646919647842,
+                    "pass": true,
+                    "distance": 1
+                }
+            },
+            "readout_crosstalk": {
+                "R0_to_R1": {
+                    "isolation_db": -34.21242055954142,
+                    "pass": false
+                },
+                "R0_to_R2": {
+                    "isolation_db": -43.00688457528157,
+                    "pass": true
+                },
+                "R0_to_R3": {
+                    "isolation_db": -41.726568945350024,
+                    "pass": true
+                },
+                "R0_to_R4": {
+                    "isolation_db": -53.29937602685408,
+                    "pass": true
+                },
+                "R0_to_R5": {
+                    "isolation_db": -44.85064899874284,
+                    "pass": true
+                },
+                "R0_to_R6": {
+                    "isolation_db": -38.14555158634414,
+                    "pass": true
+                },
+                "R0_to_R7": {
+                    "isolation_db": -57.1068315362161,
+                    "pass": true
+                },
+                "R0_to_R8": {
+                    "isolation_db": -49.49418590036142,
+                    "pass": true
+                },
+                "R0_to_R9": {
+                    "isolation_db": -48.4468049213281,
+                    "pass": true
+                },
+                "R1_to_R2": {
+                    "isolation_db": -50.5013491514907,
+                    "pass": true
+                },
+                "R1_to_R3": {
+                    "isolation_db": -44.38287381249373,
+                    "pass": true
+                },
+                "R1_to_R4": {
+                    "isolation_db": -43.89903688253608,
+                    "pass": true
+                },
+                "R1_to_R5": {
+                    "isolation_db": -50.26683027485854,
+                    "pass": true
+                },
+                "R1_to_R6": {
+                    "isolation_db": -48.40693512844651,
+                    "pass": true
+                },
+                "R1_to_R7": {
+                    "isolation_db": -48.74231063448975,
+                    "pass": true
+                },
+                "R1_to_R8": {
+                    "isolation_db": -38.89023607027077,
+                    "pass": true
+                },
+                "R1_to_R9": {
+                    "isolation_db": -41.994599945296294,
+                    "pass": true
+                },
+                "R2_to_R3": {
+                    "isolation_db": -41.21923729988306,
+                    "pass": true
+                },
+                "R2_to_R4": {
+                    "isolation_db": -50.370290496066715,
+                    "pass": true
+                },
+                "R2_to_R5": {
+                    "isolation_db": -46.35155111915801,
+                    "pass": true
+                },
+                "R2_to_R6": {
+                    "isolation_db": -38.791491014253744,
+                    "pass": true
+                },
+                "R2_to_R7": {
+                    "isolation_db": -47.05936042429137,
+                    "pass": true
+                },
+                "R2_to_R8": {
+                    "isolation_db": -39.66368376353559,
+                    "pass": true
+                },
+                "R2_to_R9": {
+                    "isolation_db": -46.291834794330526,
+                    "pass": true
+                },
+                "R3_to_R4": {
+                    "isolation_db": -42.100460819981805,
+                    "pass": true
+                },
+                "R3_to_R5": {
+                    "isolation_db": -57.806276545699404,
+                    "pass": true
+                },
+                "R3_to_R6": {
+                    "isolation_db": -43.53883937995307,
+                    "pass": true
+                },
+                "R3_to_R7": {
+                    "isolation_db": -35.438051277508634,
+                    "pass": true
+                },
+                "R3_to_R8": {
+                    "isolation_db": -41.4789871972047,
+                    "pass": true
+                },
+                "R3_to_R9": {
+                    "isolation_db": -43.52036392823529,
+                    "pass": true
+                },
+                "R4_to_R5": {
+                    "isolation_db": -47.856790420270016,
+                    "pass": true
+                },
+                "R4_to_R6": {
+                    "isolation_db": -46.1535326373755,
+                    "pass": true
+                },
+                "R4_to_R7": {
+                    "isolation_db": -37.48812984235525,
+                    "pass": true
+                },
+                "R4_to_R8": {
+                    "isolation_db": -55.428294197562295,
+                    "pass": true
+                },
+                "R4_to_R9": {
+                    "isolation_db": -50.99702482951587,
+                    "pass": true
+                },
+                "R5_to_R6": {
+                    "isolation_db": -36.220214619822784,
+                    "pass": true
+                },
+                "R5_to_R7": {
+                    "isolation_db": -40.90227766184071,
+                    "pass": true
+                },
+                "R5_to_R8": {
+                    "isolation_db": -48.009398887109676,
+                    "pass": true
+                },
+                "R5_to_R9": {
+                    "isolation_db": -46.889721878375184,
+                    "pass": true
+                },
+                "R6_to_R7": {
+                    "isolation_db": -54.563682086638906,
+                    "pass": true
+                },
+                "R6_to_R8": {
+                    "isolation_db": -45.410754970841666,
+                    "pass": true
+                },
+                "R6_to_R9": {
+                    "isolation_db": -48.07968627217448,
+                    "pass": true
+                },
+                "R7_to_R8": {
+                    "isolation_db": -43.96482052090331,
+                    "pass": true
+                },
+                "R7_to_R9": {
+                    "isolation_db": -47.819213170234356,
+                    "pass": true
+                },
+                "R8_to_R9": {
+                    "isolation_db": -52.02163286142067,
+                    "pass": true
+                }
+            },
+            "control_line_isolation": {
+                "flux_control_to_drive_control": {
+                    "isolation_db": -44.44539088174206,
+                    "pass": true
+                },
+                "flux_control_to_readout_control": {
+                    "isolation_db": -51.31529613609319,
+                    "pass": true
+                },
+                "drive_control_to_flux_control": {
+                    "isolation_db": -54.250133900249246,
+                    "pass": true
+                },
+                "drive_control_to_readout_control": {
+                    "isolation_db": -49.26900499366214,
+                    "pass": true
+                },
+                "readout_control_to_flux_control": {
+                    "isolation_db": -46.68668444921865,
+                    "pass": true
+                },
+                "readout_control_to_drive_control": {
+                    "isolation_db": -52.541385787945636,
+                    "pass": true
+                }
+            },
+            "overall": {
+                "pass_rate": 0.9929078014184397,
+                "overall_pass": true,
+                "worst_crosstalk_db": -136.78313444380532
+            }
+        },
+        "integration": {
+            "quantum_classical_interface": {
+                "latency_us": 3.993795252288371,
+                "throughput_MBps": 71.82471086133299,
+                "reliability": 0.9972716580292523,
+                "pass": true
+            },
+            "real_time_feedback": {
+                "feedback_latency_us": 0.8481999124637812,
+                "success_rate": 0.9701203491244044,
+                "pass": true
+            },
+            "system_throughput": {
+                "gate_rate_kHz": 960.6313700807206,
+                "measurement_rate_kHz": 587.2779406219684,
+                "pass": true
+            },
+            "error_correction_ready": {
+                "syndrome_extraction_us": 4.258956973126321,
+                "correction_latency_us": 5.527452234822307,
+                "pass": true
+            },
+            "overall": {
+                "all_integration_pass": true,
+                "readiness_level": "Production Ready"
+            }
+        },
+        "benchmarks": {
+            "quantum_volume": {
+                "qv_depth": 8,
+                "success_rate": 0.6652060329622772,
+                "quantum_volume": 128,
+                "pass": false
+            },
+            "randomized_benchmarking": {
+                "average_fidelity": 0.9974520188987642,
+                "coherence_limited_depth": 99.74520188987643,
+                "rb_number": 1.002554489893207
+            },
+            "cross_entropy_benchmarking": {
+                "xeb_fidelity": 0.0035658998795510656,
+                "verification_depth": 12,
+                "quantum_advantage_estimate": true
+            },
+            "application_benchmarks": {
+                "vqe_convergence_rate": 0.9217124591109452,
+                "qaoa_approximation_ratio": 0.8548230875935773,
+                "algorithm_suitability": "NISQ-era algorithms"
+            }
+        }
+    },
+    "recommendations": [
+        "Optimize qubit fabrication parameters to improve coherence times",
+        "Recalibrate gate parameters and optimize pulse sequences",
+        "Improve timing synchronization and reduce system jitter"
+    ],
+    "next_steps": [
+        "Address identified issues in priority order",
+        "Re-run verification tests after fixes",
+        "Consider design modifications if issues persist",
+        "Schedule follow-up verification session"
+    ]
+}

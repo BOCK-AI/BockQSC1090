@@ -1,0 +1,5 @@
+{
+    "circuit": "H(0); CNOT(0,1); X(1); H(1)",
+    "gate_sequence": [
+        {
+            "I_samples": 

@@ -1,0 +1,82 @@
+{
+    "Q0": {
+        "readout_fidelity": 0.95,
+        "readout_time_us": 1.0,
+        "readout_frequency_GHz": 6.0,
+        "dispersive_shift_MHz": 1.0,
+        "snr_db": -16.989700043360187,
+        "contrast": 0.02
+    },
+    "Q1": {
+        "readout_fidelity": 0.95,
+        "readout_time_us": 1.0,
+        "readout_frequency_GHz": 6.1,
+        "dispersive_shift_MHz": 1.0,
+        "snr_db": -16.989700043360187,
+        "contrast": 0.02
+    },
+    "Q2": {
+        "readout_fidelity": 0.95,
+        "readout_time_us": 1.0,
+        "readout_frequency_GHz": 6.2,
+        "dispersive_shift_MHz": 1.0,
+        "snr_db": -16.989700043360187,
+        "contrast": 0.02
+    },
+    "Q3": {
+        "readout_fidelity": 0.95,
+        "readout_time_us": 1.0,
+        "readout_frequency_GHz": 6.3,
+        "dispersive_shift_MHz": 1.0,
+        "snr_db": -16.989700043360187,
+        "contrast": 0.02
+    },
+    "Q4": {
+        "readout_fidelity": 0.95,
+        "readout_time_us": 1.0,
+        "readout_frequency_GHz": 6.4,
+        "dispersive_shift_MHz": 1.0,
+        "snr_db": -16.989700043360187,
+        "contrast": 0.02
+    },
+    "Q5": {
+        "readout_fidelity": 0.95,
+        "readout_time_us": 1.0,
+        "readout_frequency_GHz": 6.5,
+        "dispersive_shift_MHz": 1.0,
+        "snr_db": -16.989700043360187,
+        "contrast": 0.02
+    },
+    "Q6": {
+        "readout_fidelity": 0.95,
+        "readout_time_us": 1.0,
+        "readout_frequency_GHz": 6.6,
+        "dispersive_shift_MHz": 1.0,
+        "snr_db": -16.989700043360187,
+        "contrast": 0.02
+    },
+    "Q7": {
+        "readout_fidelity": 0.95,
+        "readout_time_us": 1.0,
+        "readout_frequency_GHz": 6.7,
+        "dispersive_shift_MHz": 1.0,
+        "snr_db": -16.989700043360187,
+        "contrast": 0.02
+    },
+    "Q8": {
+        "readout_fidelity": 0.95,
+        "readout_time_us": 1.0,
+        "readout_frequency_GHz": 6.8,
+        "dispersive_shift_MHz": 1.0,
+        "snr_db": -16.989700043360187,
+        "contrast": 0.02
+    },
+    "Q9": {
+        "readout_fidelity": 0.95,
+        "readout_time_us": 1.0,
+        "readout_frequency_GHz": 6.9,
+        "dispersive_shift_MHz": 1.0,
+        "snr_db": -16.989700043360187,
+        "contrast": 0.02
+    }
+}
