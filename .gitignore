@@ -1,0 +1,7 @@
+design_results_stub.json 
+fabrication_output/ 
+verification_report_*.json 
+verification_summary_*.txt 
+compiled_circuit.json 
+randomized_benchmarking_Q0.json 
+gate_calibration_Q0.json 
