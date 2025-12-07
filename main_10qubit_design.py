@@ -1,362 +1,194 @@
+#!/usr/bin/env python3
 """
-10-Qubit Quantum Processor Design using Qiskit Metal
-====================================================
-Complete working version with proper GDS export and all fixes applied.
-This script creates a 10-qubit superconducting quantum processor design
-with transmon qubits, coupling elements, and readout resonators.
-
-Author: QPU Development Team
-Date: August 2025
+Modernized main_10qubit_design.py using gdspy + qiskit (simplified shapes).
+Keeps original class/method names and outputs:
+- 10qubit_processor_v1.gds
+- pipeline_output/design_results.json
+- pipeline_output/10qubit_processor_v1_metadata.json
+- design_report.txt
 """
 
-import numpy as np
-from qiskit_metal import designs, MetalGUI
-from qiskit_metal.qlibrary.qubits.transmon_pocket import TransmonPocket
-from qiskit_metal.qlibrary.couplers.coupled_line_tee import CoupledLineTee
-import matplotlib.pyplot as plt
+import os
 import json
+import time
+import math
+import numpy as np
+import gdspy
+
+# qiskit import used only for coupling map convenience (non-essential)
+try:
+    from qiskit.transpiler import CouplingMap
+    QISKIT_AVAILABLE = True
+except Exception:
+    QISKIT_AVAILABLE = False
+
+OUTPUT_DIR = "pipeline_output"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+GDS_FILENAME = "10qubit_processor_v1.gds"
+DESIGN_JSON = os.path.join(OUTPUT_DIR, "design_results.json")
+METADATA_FILE = os.path.join(OUTPUT_DIR, "10qubit_processor_v1_metadata.json")
 
 class TenQubitProcessor:
-    """Complete 10-qubit quantum processor design class"""
-    
+    """10Q Processor replacement using gdspy (simplified shapes)."""
+
     def __init__(self):
-        """Initialize the design with basic parameters"""
-        self.design = designs.DesignPlanar()
-        self.design.chips['main']['size']['size_x'] = '20mm'
-        self.design.chips['main']['size']['size_y'] = '20mm'
-        
-        # Qubit parameters dictionary
+        # keep same config names as original for compatibility
         self.qubit_params = {
-            'pad_width': '300um',
-            'pad_height': '300um', 
-            'pad_gap': '20um',
-            'inductor_width': '4um',
-            'pocket_rise': '65um'
+            'pad_width_mm': 0.3,
+            'pad_height_mm': 0.3,
+            'pad_gap_mm': 0.02,
+            'inductor_width_mm': 0.004
         }
-        
-        # Coupling parameters
         self.coupling_params = {
-            'prime_width': '10um',
-            'prime_gap': '6um',
-            'second_width': '10um',
-            'second_gap': '6um'
+            'line_width_mm': 0.01,
+            'coupler_gap_mm': 0.006
         }
-        
-        # Store component references
         self.qubits = []
         self.couplers = []
         self.readouts = []
-        
+
     def create_qubit_layout(self):
-        """Create 10-qubit layout in 2x5 array configuration"""
-        
-        # Define qubit positions (2x5 grid)
+        """Create 10-qubit layout (2x5). Coordinates in mm."""
         positions = [
-            # Row 1 (bottom)
             (-4, -2), (-2, -2), (0, -2), (2, -2), (4, -2),
-            # Row 2 (top) 
-            (-4, 2), (-2, 2), (0, 2), (2, 2), (4, 2)
+            (-4,  2), (-2,  2), (0,  2), (2,  2), (4,  2)
         ]
-        
-        # Create transmon qubits
         for i, (x, y) in enumerate(positions):
-            qubit = TransmonPocket(
-                self.design, 
-                f'Q{i}',
-                options=dict(
-                    pos_x=f'{x}mm',
-                    pos_y=f'{y}mm',
-                    pad_width=self.qubit_params['pad_width'],
-                    pad_height=self.qubit_params['pad_height'],
-                    pad_gap=self.qubit_params['pad_gap'],
-                    inductor_width=self.qubit_params['inductor_width'],
-                    pocket_rise=self.qubit_params['pocket_rise']
-                )
-            )
-            self.qubits.append(qubit)
-            
+            q = {
+                "id": i,
+                "pos_mm": (round(x, 3), round(y, 3)),
+                "freq_guess_GHz": round(5.0 + i * 0.08, 4)
+            }
+            self.qubits.append(q)
         print(f"✅ Created {len(self.qubits)} transmon qubits")
         return True
-        
+
     def create_coupling_network(self):
-        """Create coupling elements between adjacent qubits"""
-        
-        # Define coupling connections (nearest neighbor)
-        connections = [
-            # Horizontal connections within rows
-            (0, 1), (1, 2), (2, 3), (3, 4),  # Bottom row
-            (5, 6), (6, 7), (7, 8), (8, 9),  # Top row
-            # Vertical connections between rows
-            (0, 5), (1, 6), (2, 7), (3, 8), (4, 9)
+        """Create nearest-neighbor couplers (store metadata only)."""
+        conns = [
+            (0,1),(1,2),(2,3),(3,4),
+            (5,6),(6,7),(7,8),(8,9),
+            (0,5),(1,6),(2,7),(3,8),(4,9)
         ]
-        
-        for i, (q1, q2) in enumerate(connections):
-            # Calculate coupling position (midpoint between qubits)
-            q1_pos = self.get_qubit_position(q1)
-            q2_pos = self.get_qubit_position(q2)
-            
-            # FIXED: Extract x and y components separately
-            mid_x = (q1_pos[0] + q2_pos[0]) / 2
-            mid_y = (q1_pos[1] + q2_pos[1]) / 2
-            
-            coupler = CoupledLineTee(
-                self.design,
-                f'coupler_{q1}_{q2}',
-                options=dict(
-                    pos_x=f'{mid_x}mm',
-                    pos_y=f'{mid_y}mm',
-                    prime_width=self.coupling_params['prime_width'],
-                    prime_gap=self.coupling_params['prime_gap'],
-                    second_width=self.coupling_params['second_width'],
-                    second_gap=self.coupling_params['second_gap']
-                )
-            )
-            self.couplers.append(coupler)
-            
+        for (a,b) in conns:
+            self.couplers.append({"q1": a, "q2": b, "type": "nearest_neighbor"})
         print(f"✅ Created {len(self.couplers)} coupling elements")
         return True
-        
+
     def create_readout_resonators(self):
-        """Create readout resonators for each qubit"""
-        
-        for i, qubit in enumerate(self.qubits):
-            # Position readout resonator near each qubit
-            q_pos = self.get_qubit_position(i)
-            
-            # Offset readout position
-            readout_x = q_pos[0] + 1.5  # 1.5mm offset
-            readout_y = q_pos[1]
-            
-            readout = CoupledLineTee(
-                self.design,
-                f'readout_{i}',
-                options=dict(
-                    pos_x=f'{readout_x}mm',
-                    pos_y=f'{readout_y}mm',
-                    prime_width='10um',
-                    prime_gap='6um',
-                    second_width='10um',
-                    second_gap='6um'
-                )
-            )
+        """Add readout positions (metadata)."""
+        for q in self.qubits:
+            x, y = q["pos_mm"]
+            readout = {
+                "qubit": q["id"],
+                "pos_mm": (round(x + 1.5,3), y),
+                "resonator_freq_GHz": round(6.0 + q["id"] * 0.12, 4)
+            }
             self.readouts.append(readout)
-            
         print(f"✅ Created {len(self.readouts)} readout resonators")
         return True
-        
-    def get_qubit_position(self, qubit_index):
-        """Get the x,y position of a qubit by index"""
-        positions = [
-            (-4, -2), (-2, -2), (0, -2), (2, -2), (4, -2),
-            (-4, 2), (-2, 2), (0, 2), (2, 2), (4, 2)
-        ]
-        return positions[qubit_index]
-        
+
     def analyze_system(self):
-        """Perform electromagnetic and quantum analysis"""
-        
-        print("\n=== Running System Analysis ===")
-        
-        try:
-            from qiskit_metal.analyses.quantization import EPRanalysis
-            
-            # EPR Analysis for parameter extraction  
-            epr = EPRanalysis(self.design, "hfss")
-            
-            # Set up analysis parameters
-            epr.setup.junctions = {f'Q{i}': {'Lj_variable': '10', 'rect': f'JJ_rect_Q{i}'} 
-                                  for i in range(10)}
-            
-            print("✅ EPR Analysis setup completed")
-            print("ℹ️  Note: Full EM simulation requires HFSS installation")
-            
-        except ImportError:
-            print("⚠️  EPR analysis requires additional setup (HFSS)")
-            print("✅ Design structure completed without EM analysis")
-            
+        """Placeholder analysis: compute simple estimated parameters."""
+        print("\n=== Running System Analysis (approximate estimates) ===")
+        def dist(p, q): return math.hypot(p[0]-q[0], p[1]-q[1])
+        est = []
+        for c in self.couplers:
+            p = self.qubits[c["q1"]]["pos_mm"]
+            q = self.qubits[c["q2"]]["pos_mm"]
+            d = dist(p, q)
+            est.append({"pair": (c["q1"], c["q2"]), "distance_mm": round(d,4),
+                        "est_coupling_MHz": round(100.0 / max(1.0, d), 3)})
+        self._estimates = est
+        print("✅ System analysis (approximate) completed")
         return True
-        
-    def export_design(self, filename="10qubit_processor"):
-        """Export design for KLayout and fabrication - CORRECTED VERSION"""
-        
-        print(f"\n=== Exporting Design as {filename} ===")
-        
-        # CORRECTED: Use QGDSRenderer for GDS export
-        try:
-            from qiskit_metal.renderers.renderer_gds.gds_renderer import QGDSRenderer
-            
-            # Create GDS renderer
-            gds_renderer = QGDSRenderer(self.design)
-            
-            # Export to GDS format using the renderer
-            result = gds_renderer.export_to_gds(f'{filename}.gds')
-            
-            if result == 1:  # Success returns 1
-                print(f"✅ Design exported to {filename}.gds")
-            else:
-                print(f"✅ GDS export completed with result code: {result}")
-                print(f"✅ Check {filename}.gds file")
-                
-        except ImportError as e:
-            print(f"⚠️  GDS renderer not available: {e}")
-            print("⚠️  Trying alternative export method...")
-            
-            # Alternative method using design.export
-            try:
-                # Try direct export if available
-                self.design.export(f'{filename}.gds', format='gds')
-                print(f"✅ Design exported to {filename}.gds (alternative method)")
-            except Exception as e2:
-                print(f"⚠️  Alternative export failed: {e2}")
-                print("✅ Design structure completed without GDS export")
-                print("ℹ️  Note: GDS export requires proper renderer setup")
-                
-        except Exception as e:
-            print(f"⚠️  Export error: {e}")
-            print("✅ Design structure completed")
-            
-        # Save design metadata (this part worked fine)
-        metadata = {
-            'design_name': '10-Qubit Quantum Processor',
-            'qubit_count': len(self.qubits),
-            'coupler_count': len(self.couplers),
-            'readout_count': len(self.readouts),
-            'chip_size': '20mm x 20mm',
-            'qubit_type': 'Transmon Pocket',
-            'parameters': {
-                'qubit_params': self.qubit_params,
-                'coupling_params': self.coupling_params
-            }
+
+    def export_design(self, filename="10qubit_processor_v1"):
+        """Write GDS using gdspy and save JSON metadata — simplified shapes."""
+        print(f"\n=== Exporting Design as {filename}.gds (gdspy) ===")
+        lib = gdspy.GdsLibrary()
+        top = lib.new_cell("TOP")
+
+        # Draw qubit pads as rectangles
+        for q in self.qubits:
+            x_mm, y_mm = q["pos_mm"]
+            x = x_mm * 1000.0
+            y = y_mm * 1000.0
+            w = self.qubit_params["pad_width_mm"] * 1000.0
+            h = self.qubit_params["pad_height_mm"] * 1000.0
+            rect = gdspy.Rectangle((x - w/2, y - h/2), (x + w/2, y + h/2), layer=1)
+            top.add(rect)
+
+        # Coupling lines
+        for c in self.couplers:
+            p = self.qubits[c["q1"]]["pos_mm"]
+            q = self.qubits[c["q2"]]["pos_mm"]
+            p_xy = (p[0]*1000 + 50, p[1]*1000 + 50)
+            q_xy = (q[0]*1000 + 50, q[1]*1000 + 50)
+            path = gdspy.FlexPath([p_xy, q_xy],
+                self.coupling_params["line_width_mm"]*1000.0, layer=2)
+            top.add(path)
+
+        # Simple readout resonators
+        for r in self.readouts:
+            x_mm, y_mm = r["pos_mm"]
+            x = x_mm * 1000.0; y = y_mm * 1000.0
+            seg1 = gdspy.Rectangle((x, y-10), (x+10, y), layer=3)
+            top.add(seg1)
+
+        lib.write_gds(GDS_FILENAME)
+        print(f"✅ GDS written: {GDS_FILENAME}")
+
+        # Save JSON
+        design_data = {
+            "timestamp": time.ctime(),
+            "qubit_positions_mm": [q["pos_mm"] for q in self.qubits],
+            "couplers": self.couplers,
+            "readouts": self.readouts,
+            "estimated_couplings": self._estimates
         }
-        
-        try:
-            with open(f'{filename}_metadata.json', 'w', encoding='utf-8') as f:
-                json.dump(metadata, f, indent=4)
-            print(f"✅ Design metadata saved to {filename}_metadata.json")
-        except Exception as e:
-            print(f"⚠️  Metadata save warning: {e}")
-            
+        with open(DESIGN_JSON, "w", encoding="utf-8") as f:
+            json.dump(design_data, f, indent=4)
+        print(f"✅ Design JSON saved: {DESIGN_JSON}")
+
+        metadata = {
+            "gds": GDS_FILENAME,
+            "chip_size_mm": {"x": 20, "y": 20},
+            "generated_at": time.ctime()
+        }
+        with open(METADATA_FILE, "w", encoding="utf-8") as f:
+            json.dump(metadata, f, indent=4)
+        print(f"✅ Metadata saved: {METADATA_FILE}")
+
         return True
-        
+
     def generate_report(self):
-        """Generate design summary report"""
-        
         report = f"""10-Qubit Quantum Processor Design Report
 ======================================
-
-Design Summary:
-- Total Qubits: {len(self.qubits)}
-- Coupling Elements: {len(self.couplers)} 
-- Readout Resonators: {len(self.readouts)}
-- Chip Dimensions: 20mm x 20mm
-- Qubit Layout: 2x5 grid array
-
-Qubit Parameters:
-- Type: Transmon Pocket Junction
-- Pad Size: {self.qubit_params['pad_width']} x {self.qubit_params['pad_height']}
-- Pad Gap: {self.qubit_params['pad_gap']}
-- Inductor Width: {self.qubit_params['inductor_width']}
-
-Coupling Parameters:
-- Coupler Type: Coupled Line Tee
-- Primary Width: {self.coupling_params['prime_width']}
-- Primary Gap: {self.coupling_params['prime_gap']}
-
-Expected Performance:
-- Operating Frequency: 4-8 GHz range
-- T1 Coherence: >100 microseconds (target)
-- T2 Coherence: >50 microseconds (target) 
-- Gate Fidelity: >99% (target)
-- Readout Fidelity: >95% (target)
-
-Next Steps:
-1. Run electromagnetic simulation in HFSS
-2. Extract circuit parameters (frequencies, couplings)
-3. Optimize for target specifications
-4. Export to KLayout for fabrication preparation
-5. Integrate with classical control electronics
-
-Design Status: READY FOR FABRICATION WORKFLOW
+Total Qubits: {len(self.qubits)}
+Coupling Elements: {len(self.couplers)}
+Readout Resonators: {len(self.readouts)}
+Generated at: {time.ctime()}
 """
-        
         return report
 
 def main():
-    """Main execution function"""
-    
-    print("=== 10-Qubit Quantum Processor Design ===\n")
-    
-    try:
-        # Create processor instance
-        processor = TenQubitProcessor()
-        
-        # Build the design
-        print("Creating qubit layout...")
-        processor.create_qubit_layout()
-        
-        print("Creating coupling network...")  
-        processor.create_coupling_network()
-        
-        print("Creating readout resonators...")
-        processor.create_readout_resonators()
-        
-        # Analyze the system
-        processor.analyze_system()
-        
-        # Export design
-        print("\nExporting design...")
-        processor.export_design("10qubit_processor_v1")
-        
-        # Generate report
-        print("\nGenerating design report...")
-        report = processor.generate_report()
-        print(report)
-        
-        # Save report to file with proper encoding
-        try:
-            with open("design_report.txt", "w", encoding='utf-8') as f:
-                f.write(report)
-            print("✅ Report saved to design_report.txt")
-        except Exception as e:
-            print(f"⚠️  Report save warning: {e}")
-            
-        print("\n🎉 Design completed successfully!")
-        print("Files generated:")
-        print("- 10qubit_processor_v1.gds (KLayout compatible)")
-        print("- 10qubit_processor_v1_metadata.json") 
-        print("- design_report.txt")
-        
-        # Optional: Launch GUI for visual inspection
-        try:
-            print("\nAttempting to launch GUI...")
-            gui = MetalGUI(processor.design)
-            print("✅ GUI launched for design visualization")
-            print("ℹ️  Close GUI window to continue script execution")
-        except Exception as e:
-            print(f"ℹ️  GUI not available: {e}")
-            print("✅ Design created successfully without GUI")
-        
-        return processor
-        
-    except Exception as e:
-        print(f"❌ Error: {e}")
-        import traceback
-        traceback.print_exc()
-        return None
+    print("=== 10-Qubit Quantum Processor Design (modern gdspy) ===\n")
+    proc = TenQubitProcessor()
+    proc.create_qubit_layout()
+    proc.create_coupling_network()
+    proc.create_readout_resonators()
+    proc.analyze_system()
+    proc.export_design("10qubit_processor_v1")
+    report = proc.generate_report()
+
+    with open("design_report.txt", "w", encoding="utf-8") as f:
+        f.write(report)
+    print("✅ Report saved to design_report.txt")
+
+    print("\nℹ️ GUI (MetalGUI) not available in modern version.")
+    return proc
 
 if __name__ == "__main__":
-    # Run the design
-    processor = main()
-    
-    if processor:
-        print("\n🚀 SUCCESS: 10-qubit quantum processor design ready!")
-        print("Next step: Import the generated GDS file into KLayout")
-        print("\nTo process with KLayout:")
-        print("1. cd klayout_scripts")
-        print("2. python klayout_quantum_processor.py")
-        print("\nOr manually in KLayout:")
-        print("1. Open KLayout application")
-        print("2. File → Open → Select 10qubit_processor_v1.gds")
-        print("3. Run the KLayout processing script")
-    else:
-        print("\n❌ Design failed. Check error messages above.")
+    main()
