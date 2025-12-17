@@ -5,3 +5,12 @@ verification_summary_*.txt
 compiled_circuit.json 
 randomized_benchmarking_Q0.json 
 gate_calibration_Q0.json 
+.venv/ 
+__pycache__/ 
+pipeline_output/ 
+compiled_waveforms.json 
+compiled_circuit.json 
+gate_calibration_*.json 
+randomized_benchmarking_*.json 
+*.gds 
+design_report.txt 
