@@ -1,0 +1,155 @@
+# Grover's Algorithm for 10 qubits
+# Target state: 67 (binary 0001000011)
+
+# -------------------------------------------------------
+# 1) Superposition on all qubits
+# -------------------------------------------------------
+H 0
+H 1
+H 2
+H 3
+H 4
+H 5
+H 6
+H 7
+H 8
+H 9
+
+# -------------------------------------------------------
+# 2) Oracle for target state 0001000011
+# We flip the phase ONLY for |0001000011>
+# Oracle construction:
+# Apply X to qubits that are '0' in the target state
+# Target state bits (q9 ... q0) = 0 0 0 1 0 0 0 0 1 1
+# -------------------------------------------------------
+
+# Apply X to qubits where target bit = 0
+X 0
+X 1
+# q2 = 1 → no X
+# q3 = 1 → no X
+X 4
+X 5
+X 6
+X 7
+X 8
+X 9
+
+# Multi-controlled-Z using two CNOT “sandwich” trick
+# Control all qubits → flip phase on the marked state
+
+# First CNOT chain
+CNOT 9 8
+CNOT 8 7
+CNOT 7 6
+CNOT 6 5
+CNOT 5 4
+CNOT 4 3
+CNOT 3 2
+CNOT 2 1
+CNOT 1 0
+
+# Z on the last qubit
+Z 0
+
+# Undo the chain (reverse)
+CNOT 1 0
+CNOT 2 1
+CNOT 3 2
+CNOT 4 3
+CNOT 5 4
+CNOT 6 5
+CNOT 7 6
+CNOT 8 7
+CNOT 9 8
+
+# Undo earlier X gates
+X 0
+X 1
+X 4
+X 5
+X 6
+X 7
+X 8
+X 9
+
+# -------------------------------------------------------
+# 3) Diffusion Operator (Inversion About the Mean)
+# Same for all N-qubit Grover
+# -------------------------------------------------------
+
+# H on all qubits
+H 0
+H 1
+H 2
+H 3
+H 4
+H 5
+H 6
+H 7
+H 8
+H 9
+
+# X on all qubits
+X 0
+X 1
+X 2
+X 3
+X 4
+X 5
+X 6
+X 7
+X 8
+X 9
+
+# Multi-controlled-Z for |1111111111>
+CNOT 9 8
+CNOT 8 7
+CNOT 7 6
+CNOT 6 5
+CNOT 5 4
+CNOT 4 3
+CNOT 3 2
+CNOT 2 1
+CNOT 1 0
+
+Z 0
+
+CNOT 1 0
+CNOT 2 1
+CNOT 3 2
+CNOT 4 3
+CNOT 5 4
+CNOT 6 5
+CNOT 7 6
+CNOT 8 7
+CNOT 9 8
+
+# Undo X
+X 0
+X 1
+X 2
+X 3
+X 4
+X 5
+X 6
+X 7
+X 8
+X 9
+
+# Final H on all qubits
+H 0
+H 1
+H 2
+H 3
+H 4
+H 5
+H 6
+H 7
+H 8
+H 9
+
+# -------------------------------------------------------
+# 4) Measurement
+# -------------------------------------------------------
+MEASURE
