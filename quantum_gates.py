@@ -1,112 +1,63 @@
 """
-Quantum Gate Implementation Library (Production Version)
---------------------------------------------------------
+Quantum Gate Implementation Library
+-----------------------------------
 
-This module performs:
-- Single-qubit calibration (Rabi, Ramsey)
-- Randomized benchmarking
-- Gate sequence compilation
+Implements:
+- Calibration & benchmarking
+- Circuit compilation
+- Pulse scheduling
+- Waveform generation
+- Pulse execution
+- Measurement (mock readout)
 
-This version is lightweight, has no external physics dependencies,
-and produces clean, realistic outputs suitable for dashboards & pipelines.
+This completes a full gate → pulse → execution → readout flow.
 """
 
 import numpy as np
 import json
 import time
 
+from pulse_engine.pulse_sequence import circuit_to_pulses
+from pulse_engine.scheduler import PulseScheduler
+from pulse_engine.waveform_builder import build_waveform
+from pulse_engine.timing_engine import align_to_hardware_clock
+from pulse_engine.execution_engine import PulseExecutor
+from pulse_engine.measurement import MeasurementEngine
+
 
 class QuantumGateImplementation:
 
     def __init__(self):
-        # Default parameters (clean, realistic values)
-        self.base_frequency = 5.0e9  # 5 GHz
-        self.sample_rate = 2e9       # 2 GSa/s
-        self.default_duration = 20e-9  # 20 ns
-        self.cz_duration = 200e-9      # 200 ns
+        self.sample_rate = 2e9  # 2 GS/s
 
-    # ---------------------------------------------------------
-    # Calibration Routines
-    # ---------------------------------------------------------
-    def rabi_calibration(self):
-        amplitudes = np.linspace(0.1, 1.0, 20)
-        populations = []
-
-        for amp in amplitudes:
-            omega = amp * 25e6
-            pop = np.sin(omega * self.default_duration / 2)**2
-            pop += np.random.normal(0, 0.01)  # measurement noise
-            populations.append(max(0, min(1, pop)))
-
-        pi_pulse_amp = float(amplitudes[np.argmax(populations)])
-
-        return {
-            "amplitudes": amplitudes.tolist(),
-            "populations": populations,
-            "pi_pulse_amplitude": pi_pulse_amp
-        }
-
-    def ramsey_calibration(self):
-        delays = np.linspace(0, 2e-6, 40)
-        detuning = np.random.uniform(-1e6, 1e6)
-        T2_star = 50e-6  # 50 µs
-
-        pops = 0.5 * (1 + np.exp(-delays / T2_star) *
-                      np.cos(2 * np.pi * detuning * delays))
-
-        pops = pops + np.random.normal(0, 0.02, len(pops))
-        pops = np.clip(pops, 0, 1)
-
-        return {
-            "delays_us": (delays * 1e6).tolist(),
-            "populations": pops.tolist(),
-            "detuning_Hz": float(detuning),
-            "T2_star_us": float(T2_star * 1e6)
-        }
-
+    # --------------------------------------------------
+    # Calibration (mock)
+    # --------------------------------------------------
     def calibrate_qubit(self, qubit=0):
-        rabi = self.rabi_calibration()
-        ramsey = self.ramsey_calibration()
-
         return {
             "timestamp": time.ctime(),
             "qubit": qubit,
-            "rabi": rabi,
-            "ramsey": ramsey,
-            "optimized_parameters": {
-                "amplitude": rabi["pi_pulse_amplitude"],
-                "frequency_correction_Hz": -ramsey["detuning_Hz"],
-                "duration_ns": 20
-            }
+            "pi_pulse_amplitude": 0.85,
+            "T1_us": 110.0,
+            "T2_us": 60.0
         }
 
-    # ---------------------------------------------------------
-    # Randomized Benchmarking
-    # ---------------------------------------------------------
+    # --------------------------------------------------
+    # Randomized Benchmarking (mock)
+    # --------------------------------------------------
     def randomized_benchmarking(self, qubit=0):
-        depths = [1, 2, 4, 8, 16, 32, 64, 128]
-        avg_fid = 0.996  # realistic average fidelity
-
-        surv = []
-        for d in depths:
-            p = avg_fid ** d
-            surv.append(max(0.4, min(1.0, p + np.random.normal(0, 0.01))))
-
         return {
             "timestamp": time.ctime(),
             "qubit": qubit,
-            "depths": depths,
-            "survival_probabilities": surv,
-            "average_gate_fidelity": avg_fid
+            "average_gate_fidelity": 0.996
         }
 
-    # ---------------------------------------------------------
+    # --------------------------------------------------
     # Circuit Compiler
-    # ---------------------------------------------------------
+    # --------------------------------------------------
     def compile_circuit(self, circuit_str):
         ops = circuit_str.split(";")
         gates = []
-        total_ns = 0
 
         for op in ops:
             op = op.strip()
@@ -116,58 +67,96 @@ class QuantumGateImplementation:
             name = op.split("(")[0]
             params = op.split("(")[1].split(")")[0]
 
-            if "," in params:  # CNOT
-                control, target = map(int, params.split(","))
-
-                gates.append({
-                    "gate": "CNOT",
-                    "control": control,
-                    "target": target,
-                    "duration_ns": 200
-                })
-                total_ns += 200
-
-            else:  # Single qubit gate
-                q = int(params)
-                duration = 20
-
-                gates.append({
-                    "gate": name,
-                    "qubit": q,
-                    "duration_ns": duration
-                })
-                total_ns += duration
+            if "," in params:
+                c, t = map(int, params.split(","))
+                gates.append({"gate": "CNOT", "control": c, "target": t})
+            else:
+                gates.append({"gate": name, "qubit": int(params)})
 
         return {
             "timestamp": time.ctime(),
             "circuit": circuit_str,
-            "gates": gates,
-            "total_duration_ns": total_ns
+            "gates": gates
         }
 
 
-# ---------------------------------------------------------
-# MAIN EXECUTION
-# ---------------------------------------------------------
+# --------------------------------------------------
+# MAIN
+# --------------------------------------------------
 def main():
     gate_impl = QuantumGateImplementation()
 
-    print("Running Quantum Gate Calibration...")
-    cal = gate_impl.calibrate_qubit(0)
-    json.dump(cal, open("gate_calibration_Q0.json", "w"), indent=4)
-    print("✓ Saved gate_calibration_Q0.json")
+    print("Running calibration...")
+    json.dump(gate_impl.calibrate_qubit(0),
+              open("gate_calibration_Q0.json", "w"), indent=4)
 
-    print("Running Randomized Benchmarking...")
-    rb = gate_impl.randomized_benchmarking(0)
-    json.dump(rb, open("randomized_benchmarking_Q0.json", "w"), indent=4)
-    print("✓ Saved randomized_benchmarking_Q0.json")
+    print("Running benchmarking...")
+    json.dump(gate_impl.randomized_benchmarking(0),
+              open("randomized_benchmarking_Q0.json", "w"), indent=4)
 
-    print("Compiling Circuit...")
+    print("Compiling circuit...")
     seq = gate_impl.compile_circuit("H(0); CNOT(0,1); X(1); H(1)")
     json.dump(seq, open("compiled_circuit.json", "w"), indent=4)
-    print("✓ Saved compiled_circuit.json")
 
-    print("\n🎉 Quantum Gates completed successfully!")
+    # --------------------------------------------------
+    # Gate → Pulse conversion
+    # --------------------------------------------------
+    converted = []
+    for g in seq["gates"]:
+        if g["gate"] == "CNOT":
+            converted.append({"gate": "CNOT", "qubit": g["control"]})
+            converted.append({"gate": "CNOT", "qubit": g["target"]})
+        else:
+            converted.append({"gate": g["gate"], "qubit": g["qubit"]})
+
+    pulses = circuit_to_pulses(converted)
+
+    # --------------------------------------------------
+    # Pulse Scheduling
+    # --------------------------------------------------
+    scheduler = PulseScheduler(clock_resolution=1e-9)
+    schedule = scheduler.schedule(pulses)
+    schedule = align_to_hardware_clock(schedule)
+
+    # --------------------------------------------------
+    # Waveform Generation
+    # --------------------------------------------------
+    waveforms = []
+    for sp in schedule:
+        samples = build_waveform(sp, sample_rate=gate_impl.sample_rate)
+        waveforms.append({
+            "name": sp.pulse.name,
+            "channel": sp.pulse.channel,
+            "start_time_s": float(sp.start_time),
+            "end_time_s": float(sp.end_time),
+            "samples": [float(x) for x in samples.tolist()]
+        })
+
+    json.dump(waveforms, open("compiled_waveforms.json", "w"), indent=2)
+    print("✓ compiled_waveforms.json generated")
+
+    print("\nScheduled pulses:")
+    for sp in schedule:
+        print(f"  {sp.pulse.name} | {sp.start_time*1e9:.1f} → {sp.end_time*1e9:.1f} ns")
+
+    # --------------------------------------------------
+    # Pulse Execution
+    # --------------------------------------------------
+    executor = PulseExecutor(sample_rate=gate_impl.sample_rate)
+    executor.load_schedule("compiled_waveforms.json")
+    executor.execute()
+
+    # --------------------------------------------------
+    # Measurement
+    # --------------------------------------------------
+    meas = MeasurementEngine(readout_error=0.03)
+    results = meas.measure_all(num_qubits=2)
+
+    print("\nMeasurement results:")
+    for q, r in results.items():
+        print(f"  {q} → {r}")
+
+    print("\n🎉 Quantum gates pipeline complete")
 
 
 if __name__ == "__main__":
