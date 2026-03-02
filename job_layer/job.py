@@ -2,12 +2,13 @@
 
 import uuid
 import time
+import job_layer.job_status as STATUS
 
 class Job:
     def __init__(self, circuit):
         self.id = str(uuid.uuid4())
         self.circuit = circuit
-        self.status = "PENDING"
+        self.status = STATUS.CREATED    # FIX
         self.created_at = time.time()
         self.result = None
 

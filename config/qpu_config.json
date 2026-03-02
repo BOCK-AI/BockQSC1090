@@ -1,0 +1,7 @@
+{
+    "max_gates": 50000,
+    "max_depth": 20000,
+    "max_blocks": 100,
+    "max_pulses": 80000,
+    "allowed_gates": ["H", "X", "Y", "Z", "CNOT"]
+}

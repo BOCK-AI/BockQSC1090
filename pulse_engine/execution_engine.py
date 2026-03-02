@@ -1,45 +1,29 @@
-import json
-import time
+# pulse_engine/execution_engine_advanced.py
 
 class PulseExecutor:
-    def __init__(self, sample_rate=2e9):
-        self.sample_rate = sample_rate
-        self.clock_period = 1 / sample_rate  # seconds
+    def __init__(self, batch_size=200):
+        self.batch_size = batch_size
 
     def load_schedule(self, path="compiled_waveforms.json"):
+        import json
         with open(path, "r") as f:
             self.schedule = json.load(f)
 
-        # Sort pulses by start time
-        self.schedule.sort(key=lambda p: p["start_time_s"])
-
-        print(f"Loaded {len(self.schedule)} pulses for execution.")
-
     def execute(self):
-        """
-        Execute pulses according to their scheduled times.
-        """
-        print("\n=== Pulse Execution Started ===")
+        pulses = self.schedule
 
-        current_time = 0.0
+        print("\n=== EXECUTION (BATCHED) ===")
 
-        for p in self.schedule:
-            start = p["start_time_s"]
-            end = p["end_time_s"]
+        # Split into batches
+        batches = [
+            pulses[i:i + self.batch_size]
+            for i in range(0, len(pulses), self.batch_size)
+        ]
 
-            # Respect timing gaps
-            if start > current_time:
-                gap = start - current_time
-                print(f"[WAIT] {gap*1e9:.1f} ns")
-                # No real sleep — placeholder for hardware clock
+        for i, batch in enumerate(batches):
+            print(f"\n--- Batch {i+1}/{len(batches)} | {len(batch)} pulses ---")
 
-            duration = end - start
-            print(f"[EXEC] {p['name']} | {duration*1e9:.1f} ns | channel={p['channel']}")
+            for p in batch:
+                print(f"[EXEC] {p['name']} | ch={p['channel']} | duration={p['end_time_s']-p['start_time_s']:.2e}s")
 
-            # Simulate waveform playback
-            samples = p["samples"]
-            print(f"   Playing {len(samples)} samples")
-
-            current_time = end
-
-        print("=== Pulse Execution Finished ===\n")
+        print("\n=== EXECUTION COMPLETE ===\n")
