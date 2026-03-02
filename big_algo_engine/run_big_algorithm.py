@@ -23,7 +23,6 @@ def main():
 
     block_builder = BigAlgoBlockBuilder()
     blocks = block_builder.chain_blocks(num_blocks=3)
-
     print(f"✓ Built {len(blocks)} blocks")
 
     # 2. COMPILATION
