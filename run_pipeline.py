@@ -16,7 +16,10 @@ Author: QPU Development Team
 
 import os
 import sys
-import time
+import subprocess
+
+os.makedirs("pipeline_output", exist_ok=True)
+os.makedirs("fabrication_output", exist_ok=True)
 
 print("\n🚀 Starting 10-Qubit Processor Pipeline...\n")
 
@@ -26,9 +29,9 @@ print("\n🚀 Starting 10-Qubit Processor Pipeline...\n")
 # ------------------------------------------------------------
 def run_step(label, command):
     print(f"\n🔹 Running {label}...")
-    exit_code = os.system(command)
-
-    if exit_code != 0:
+    result = subprocess.run(command.split())
+    
+    if result.returncode != 0:
         print(f"❌ ERROR: {label} failed.")
         sys.exit(1)
 

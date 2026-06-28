@@ -7,7 +7,7 @@ from pulse_engine.timing_engine import align_to_hardware_clock
 circuit = [
     {"gate": "X", "qubit": 0},
     {"gate": "H", "qubit": 1},
-    {"gate": "CNOT", "qubit": 0},
+    {"gate": "CNOT", "control": 0, "target": 1},
 ]
 
 pulses = circuit_to_pulses(circuit)

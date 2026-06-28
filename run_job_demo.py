@@ -1,4 +1,4 @@
-# run_multi_job_demo.py
+# run_job_demo.py
 
 from qpu_os import QPUOS
 from quantum_gates import QuantumGateImplementation
@@ -27,10 +27,17 @@ def main():
 
     # ---- EXECUTE JOBS ONE BY ONE ----
     for i in range(3):
-        finished_id, result = manager.run_next()
-        print(f"\nFinished job: {finished_id}")
-        print("Result:", result)
-        print("Final status:", manager.get_status(finished_id))
+        try:
+            res = manager.run_next()
+            if res is not None:
+                finished_id, result = res
+                print(f"\nFinished job: {finished_id}")
+                print("Result:", result)
+                print("Final status:", manager.get_status(finished_id))
+            else:
+                print("No more jobs in queue.")
+        except Exception as e:
+            print(f"Error executing job: {e}")
 
 
 if __name__ == "__main__":

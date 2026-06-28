@@ -13,7 +13,7 @@ def load_json(path):
     try:
         with open(path, "r") as f:
             return json.load(f)
-    except:
+    except Exception:
         return None
 
 # ----------------------------------------------------------
@@ -55,7 +55,7 @@ def apply_cnot(state, control, target, num_qubits):
 H_GATE = (1/np.sqrt(2))*np.array([[1,1],[1,-1]])
 X_GATE = np.array([[0,1],[1,0]])
 Y_GATE = np.array([[0,-1j],[1j,0]])
-Z_GATE = np.array([[1,0],[0,1]])
+Z_GATE = np.array([[1,0],[0,-1]])
 
 def parse_algo_text(text):
     ops = []
@@ -105,13 +105,13 @@ def execute_ops(ops, num_qubits=10):
             log.append("MEASURE")
             probabilities = np.abs(state)**2
             outcome = np.random.choice(len(probabilities), p=probabilities)
-            bitstring = format(outcome, "010b")
+            bitstring = format(outcome, f"0{num_qubits}b")
             return bitstring, log
 
     # Auto measure at end if none is present
     probabilities = np.abs(state)**2
     outcome = np.random.choice(len(probabilities), p=probabilities)
-    bitstring = format(outcome, "010b")
+    bitstring = format(outcome, f"0{num_qubits}b")
     return bitstring, log
 
 
@@ -163,14 +163,14 @@ with tab1:
         try:
             st.subheader("Qubit Frequencies (GHz)")
             freqs = [q["frequency_01"] for q in design["qubit_parameters"].values()]
-            plt.clf()
-            plt.figure(figsize=(8, 4))
-            plt.bar(range(len(freqs)), freqs)
-            plt.xlabel("Qubit Index")
-            plt.ylabel("GHz")
-            plt.grid(True, alpha=0.3)
-            st.pyplot(plt)
-        except:
+            fig, ax = plt.subplots(figsize=(8, 4))
+            ax.bar(range(len(freqs)), freqs)
+            ax.set_xlabel("Qubit Index")
+            ax.set_ylabel("GHz")
+            ax.grid(True, alpha=0.3)
+            st.pyplot(fig)
+            plt.close(fig)
+        except Exception:
             st.info("Frequency data not available.")
 
 
@@ -197,14 +197,14 @@ with tab2:
 
             # Plot qubit frequency map
             if title == "System Benchmarks" and "frequencies" in data:
-                plt.clf()
-                plt.figure(figsize=(7, 3))
-                plt.plot(data["frequencies"], marker="o")
-                plt.title("System Benchmark: Qubit Frequency Map")
-                plt.xlabel("Qubit Index")
-                plt.ylabel("GHz")
-                plt.grid(True, alpha=0.3)
-                st.pyplot(plt)
+                fig, ax = plt.subplots(figsize=(7, 3))
+                ax.plot(data["frequencies"], marker="o")
+                ax.set_title("System Benchmark: Qubit Frequency Map")
+                ax.set_xlabel("Qubit Index")
+                ax.set_ylabel("GHz")
+                ax.grid(True, alpha=0.3)
+                st.pyplot(fig)
+                plt.close(fig)
 
         else:
             st.info(f"{filename} will appear after running pipeline.")
@@ -232,13 +232,13 @@ with tab3:
     if rb:
         st.json(rb)
         if "depths" in rb and "survival_probabilities" in rb:
-            plt.clf()
-            plt.figure(figsize=(6, 3))
-            plt.plot(rb["depths"], rb["survival_probabilities"], marker="o")
-            plt.xlabel("Circuit Depth")
-            plt.ylabel("Survival Probability")
-            plt.grid(True, alpha=0.3)
-            st.pyplot(plt)
+            fig, ax = plt.subplots(figsize=(6, 3))
+            ax.plot(rb["depths"], rb["survival_probabilities"], marker="o")
+            ax.set_xlabel("Circuit Depth")
+            ax.set_ylabel("Survival Probability")
+            ax.grid(True, alpha=0.3)
+            st.pyplot(fig)
+            plt.close(fig)
     else:
         st.info("RB results missing.")
 
@@ -249,14 +249,14 @@ with tab3:
         if gates:
             st.json(gates)
             durations = [g.get("duration_ns", 20) for g in gates]
-            plt.clf()
-            plt.figure(figsize=(7, 3))
-            plt.bar(range(len(durations)), durations)
-            plt.xlabel("Gate Index")
-            plt.ylabel("Duration (ns)")
-            plt.title("Gate Timeline")
-            plt.grid(True, alpha=0.2)
-            st.pyplot(plt)
+            fig, ax = plt.subplots(figsize=(7, 3))
+            ax.bar(range(len(durations)), durations)
+            ax.set_xlabel("Gate Index")
+            ax.set_ylabel("Duration (ns)")
+            ax.set_title("Gate Timeline")
+            ax.grid(True, alpha=0.2)
+            st.pyplot(fig)
+            plt.close(fig)
         else:
             st.info("Circuit file found but contains no gate list.")
     else:

@@ -13,19 +13,12 @@ import json
 import time
 import math
 import numpy as np
-import gdspy
-
-# qiskit import used only for coupling map convenience (non-essential)
-try:
-    from qiskit.transpiler import CouplingMap
-    QISKIT_AVAILABLE = True
-except Exception:
-    QISKIT_AVAILABLE = False
+import gdstk
 
 OUTPUT_DIR = "pipeline_output"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-GDS_FILENAME = "10qubit_processor_v1.gds"
+GDS_FILENAME = os.path.join(OUTPUT_DIR, "10qubit_processor_v1.gds")
 DESIGN_JSON = os.path.join(OUTPUT_DIR, "design_results.json")
 METADATA_FILE = os.path.join(OUTPUT_DIR, "10qubit_processor_v1_metadata.json")
 
@@ -47,6 +40,7 @@ class TenQubitProcessor:
         self.qubits = []
         self.couplers = []
         self.readouts = []
+        self._estimates = []
 
     def create_qubit_layout(self):
         """Create 10-qubit layout (2x5). Coordinates in mm."""
@@ -105,9 +99,9 @@ class TenQubitProcessor:
         return True
 
     def export_design(self, filename="10qubit_processor_v1"):
-        """Write GDS using gdspy and save JSON metadata — simplified shapes."""
-        print(f"\n=== Exporting Design as {filename}.gds (gdspy) ===")
-        lib = gdspy.GdsLibrary()
+        """Write GDS using gdstk and save JSON metadata — simplified shapes."""
+        print(f"\n=== Exporting Design as {filename}.gds (gdstk) ===")
+        lib = gdstk.Library()
         top = lib.new_cell("TOP")
 
         # Draw qubit pads as rectangles
@@ -117,7 +111,7 @@ class TenQubitProcessor:
             y = y_mm * 1000.0
             w = self.qubit_params["pad_width_mm"] * 1000.0
             h = self.qubit_params["pad_height_mm"] * 1000.0
-            rect = gdspy.Rectangle((x - w/2, y - h/2), (x + w/2, y + h/2), layer=1)
+            rect = gdstk.rectangle((x - w/2, y - h/2), (x + w/2, y + h/2), layer=1)
             top.add(rect)
 
         # Coupling lines
@@ -126,7 +120,7 @@ class TenQubitProcessor:
             q = self.qubits[c["q2"]]["pos_mm"]
             p_xy = (p[0]*1000 + 50, p[1]*1000 + 50)
             q_xy = (q[0]*1000 + 50, q[1]*1000 + 50)
-            path = gdspy.FlexPath([p_xy, q_xy],
+            path = gdstk.FlexPath([p_xy, q_xy],
                 self.coupling_params["line_width_mm"]*1000.0, layer=2)
             top.add(path)
 
@@ -134,7 +128,7 @@ class TenQubitProcessor:
         for r in self.readouts:
             x_mm, y_mm = r["pos_mm"]
             x = x_mm * 1000.0; y = y_mm * 1000.0
-            seg1 = gdspy.Rectangle((x, y-10), (x+10, y), layer=3)
+            seg1 = gdstk.rectangle((x, y-10), (x+10, y), layer=3)
             top.add(seg1)
 
         lib.write_gds(GDS_FILENAME)
@@ -174,7 +168,7 @@ Generated at: {time.ctime()}
         return report
 
 def main():
-    print("=== 10-Qubit Quantum Processor Design (modern gdspy) ===\n")
+    print("=== 10-Qubit Quantum Processor Design (modern gdstk) ===\n")
     proc = TenQubitProcessor()
     proc.create_qubit_layout()
     proc.create_coupling_network()

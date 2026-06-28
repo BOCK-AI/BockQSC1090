@@ -1,5 +1,6 @@
 import numpy as np
 import argparse
+import sys
 
 # ============================================================
 #  Utility: Apply quantum gates to statevector
@@ -63,7 +64,7 @@ def load_algorithm(filename):
             lines = f.readlines()
     except Exception as e:
         print(f"\n❌ ERROR reading file '{filename}': {e}")
-        exit(1)
+        sys.exit(1)
 
     for line in lines:
         line = line.strip()
@@ -79,6 +80,10 @@ def load_algorithm(filename):
             operations.append((gate, []))
         else:
             args = list(map(int, parts[1:]))
+            for q in args:
+                if q < 0 or q >= 10:
+                    print(f"❌ ERROR: Qubit index {q} out of bounds.")
+                    sys.exit(1)
             operations.append((gate, args))
 
     return operations
@@ -126,24 +131,24 @@ def execute_algorithm(ops, num_qubits=10):
 
         elif gate == "MEASURE":
             print("\n📥 Measuring final quantum state...")
-            return measure_state(state)
+            return measure_state(state, num_qubits)
 
         else:
             print(f"⚠️ Unknown gate: {gate}")
 
     print("\n⚠️ No MEASURE found in algorithm. Auto-measuring...")
-    return measure_state(state)
+    return measure_state(state, num_qubits)
 
 
 # ============================================================
 #  Measurement
 # ============================================================
 
-def measure_state(state):
+def measure_state(state, num_qubits=10):
     """Simulates measurement of all qubits."""
     probabilities = np.abs(state) ** 2
     outcome = np.random.choice(len(probabilities), p=probabilities)
-    bitstring = format(outcome, "010b")
+    bitstring = format(outcome, f"0{num_qubits}b")
     print(f"\n🎉 Measurement Result: {bitstring}\n")
     return bitstring
 

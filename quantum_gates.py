@@ -107,3 +107,6 @@ class QuantumGateImplementation:
             "gates": gates,
             "total_duration_ns": total_ns,
         }
+
+if __name__ == "__main__":
+    print("✅ Quantum Gates module loaded successfully.")

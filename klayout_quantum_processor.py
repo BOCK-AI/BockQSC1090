@@ -21,8 +21,7 @@ except ImportError:
     print("⚠️ KLayout (pya) module not found. Running in SAFE MODE (no KLayout required).")
     KLAYOUT_AVAILABLE = False
 
-import json
-import datetime
+
 
 
 def load_gds_safely(filepath):
@@ -43,7 +42,9 @@ def load_gds_safely(filepath):
 
 
 def run_drc_checks():
-    """Dummy DRC checks — same output as original pipeline."""
+    """Dummy DRC checks — same output as original pipeline.
+    Note: These are placeholders and do not perform actual geometric rule checking.
+    """
     print("\n=== Running DRC Checks ===")
     print("✅ Checking minimum line width: 2.0 μm")
     print("✅ Checking minimum spacing: 2.0 μm")
@@ -65,7 +66,8 @@ def export_fabrication(layout, output_dir="fabrication_output"):
     else:
         # Safe fallback: copy original file
         import shutil
-        shutil.copy("10qubit_processor_v1.gds", fab_gds_path)
+        input_gds = os.path.join("pipeline_output", "10qubit_processor_v1.gds")
+        shutil.copy(input_gds, fab_gds_path)
         print(f"⚠️ KLayout missing — copied input GDS to → {fab_gds_path}")
 
     report = """Fabrication Report
@@ -84,7 +86,7 @@ def export_fabrication(layout, output_dir="fabrication_output"):
 def main():
     print("=== KLayout Quantum Processor Integration (Updated v2) ===")
 
-    gds_file = "10qubit_processor_v1.gds"
+    gds_file = os.path.join("pipeline_output", "10qubit_processor_v1.gds")
 
     if not os.path.exists(gds_file):
         print(f"❌ ERROR: GDS file not found → {gds_file}")

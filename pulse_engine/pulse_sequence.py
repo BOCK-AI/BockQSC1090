@@ -12,16 +12,16 @@ def circuit_to_pulses(circuit: List[dict]):
     pulses = []
     for inst in circuit:
         gate = inst["gate"]
-        qubit = inst["qubit"]
         if gate not in GATE_LIBRARY:
             raise ValueError(f"Gate {gate} has no pulse template")
         tmpl = GATE_LIBRARY[gate]
-        p = Pulse(
-            name=f"{gate}_{qubit}",
-            duration=tmpl["duration"],
-            amplitude=tmpl["amplitude"],
-            waveform=tmpl["waveform"],
-            channel=f"d{qubit}"
-        )
-        pulses.append(p)
+        
+        if gate == "CNOT":
+            ctrl = inst["control"]
+            tgt = inst["target"]
+            pulses.append(Pulse(name=f"CNOT_c{ctrl}", duration=tmpl["duration"], amplitude=tmpl["amplitude"], waveform=tmpl["waveform"], channel=f"d{ctrl}"))
+            pulses.append(Pulse(name=f"CNOT_t{tgt}", duration=tmpl["duration"], amplitude=tmpl["amplitude"], waveform=tmpl["waveform"], channel=f"d{tgt}"))
+        else:
+            qubit = inst["qubit"]
+            pulses.append(Pulse(name=f"{gate}_{qubit}", duration=tmpl["duration"], amplitude=tmpl["amplitude"], waveform=tmpl["waveform"], channel=f"d{qubit}"))
     return pulses
