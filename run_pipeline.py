@@ -29,7 +29,10 @@ print("\n🚀 Starting 10-Qubit Processor Pipeline...\n")
 # ------------------------------------------------------------
 def run_step(label, command):
     print(f"\n🔹 Running {label}...")
-    result = subprocess.run(command.split())
+    cmd_list = command.split()
+    if cmd_list[0] == "python":
+        cmd_list[0] = sys.executable
+    result = subprocess.run(cmd_list)
     
     if result.returncode != 0:
         print(f"❌ ERROR: {label} failed.")
@@ -41,31 +44,31 @@ def run_step(label, command):
 # ------------------------------------------------------------
 # 1. DESIGN GENERATION
 # ------------------------------------------------------------
-run_step("main_10qubit_design.py", "python main_10qubit_design.py")
+run_step("core/main_10qubit_design.py", "python core/main_10qubit_design.py")
 
 
 # ------------------------------------------------------------
 # 2. KLAYOUT PROCESSING
 # ------------------------------------------------------------
-run_step("klayout_quantum_processor.py", "python klayout_quantum_processor.py")
+run_step("core/klayout_quantum_processor.py", "python core/klayout_quantum_processor.py")
 
 
 # ------------------------------------------------------------
 # 3. SYSTEM SIMULATIONS
 # ------------------------------------------------------------
-run_step("quantum_processor_simulation.py", "python quantum_processor_simulation.py")
+run_step("core/quantum_processor_simulation.py", "python core/quantum_processor_simulation.py")
 
 
 # ------------------------------------------------------------
 # 4. QUANTUM GATE OPERATIONS (NEW production version)
 # ------------------------------------------------------------
-run_step("quantum_gates.py", "python quantum_gates.py")
+run_step("core/quantum_gates.py", "python core/quantum_gates.py")
 
 
 # ------------------------------------------------------------
 # 5. VERIFICATION SUITE
 # ------------------------------------------------------------
-run_step("quantum_processor_verification.py", "python quantum_processor_verification.py")
+run_step("core/quantum_processor_verification.py", "python core/quantum_processor_verification.py")
 
 
 print("\n🎉 Pipeline completed successfully!\n")

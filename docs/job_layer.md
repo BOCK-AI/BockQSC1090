@@ -1,6 +1,43 @@
 # Job Layer
 
-The Job Layer (`job_manager.py`) manages a queue of jobs.
-- Allows asynchronous job submission.
-- Supports priority scheduling (planned feature).
-- Returns job execution status and results.
+The Job Layer (`job_layer/`) provides a robust queuing system for managing quantum workloads. Because quantum processors are scarce, single-threaded resources, circuits cannot be executed simultaneously; they must be queued, prioritized, and executed sequentially.
+
+## Components
+
+### `Job` Object (`job.py`)
+Every submitted circuit is wrapped in a `Job` dataclass. A job possesses:
+- A unique UUID (`id`).
+- The source `circuit` string.
+- A `status` tracking its lifecycle (`CREATED`, `QUEUED`, `RUNNING`, `COMPLETED`, `FAILED`).
+- Timestamps for submission and completion.
+- The final execution `result`.
+
+### `JobQueue` and `JobStore`
+- **`JobQueue`**: A FIFO queue (using `collections.deque`) that holds jobs awaiting execution.
+- **`JobStore`**: An in-memory dictionary that stores the canonical state of all jobs, allowing for fast retrieval by UUID.
+
+### `JobManager` (`job_manager.py`)
+The `JobManager` is the primary interface for this layer. It accepts incoming circuit strings, wraps them in `Job` objects, and places them in the queue. 
+
+**Key Methods:**
+- `submit_job(circuit_str)`: Creates and queues a new job, returning the UUID.
+- `run_next()`: Pops the oldest job from the queue, passes it to the `QPUOS` for execution, updates the job's status to `COMPLETED`, and stores the result.
+- `get_status(job_id)`: Retrieves the current status and results of a specific job.
+
+## Usage Example
+
+```python
+from qpu_os import QPUOS
+from job_layer.job_manager import JobManager
+
+# Initialize dependencies...
+os_layer = QPUOS(gate_engine, scheduler, executor)
+manager = JobManager(os_layer)
+
+# Asynchronous submission
+job_id = manager.submit_job("H(0); X(1)")
+
+# Process queue
+finished_id, result = manager.run_next()
+print(f"Job {finished_id} finished with result: {result}")
+```

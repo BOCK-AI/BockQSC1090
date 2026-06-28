@@ -8,7 +8,7 @@ sys.path.append(os.getcwd())
 
 from big_algo_engine.block_builder import BigAlgoBlockBuilder
 from big_algo_engine.big_algo_compiler import BigAlgoCompiler
-from quantum_gates import QuantumGateImplementation
+from core.quantum_gates import QuantumGateImplementation
 from pulse_engine.scheduler import PulseScheduler
 from pulse_engine.waveform_builder import WaveformBuilder
 from pulse_engine.execution_engine import PulseExecutor

@@ -10,10 +10,10 @@ from sha256.sha256_blocks import SHA256BlockBuilder
 from sha256.sha256_compiler import SHA256Compiler
 
 # QPU pipeline
-from quantum_gates import QuantumGateImplementation
+from core.quantum_gates import QuantumGateImplementation
 from pulse_engine.scheduler import PulseScheduler
 from pulse_engine.execution_engine import PulseExecutor
-from qpu_os import QPUOS
+from core.qpu_os import QPUOS
 
 
 def main():

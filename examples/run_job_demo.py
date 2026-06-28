@@ -1,7 +1,7 @@
 # run_job_demo.py
 
-from qpu_os import QPUOS
-from quantum_gates import QuantumGateImplementation
+from core.qpu_os import QPUOS
+from core.quantum_gates import QuantumGateImplementation
 from pulse_engine.scheduler import PulseScheduler
 from pulse_engine.execution_engine import PulseExecutor
 
