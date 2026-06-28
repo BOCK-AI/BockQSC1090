@@ -19,3 +19,44 @@ The script defines classical NumPy implementations of quantum-analogous operatio
 ## The Stress Test (`run_sha256.py`)
 
 The `run_sha256.py` script utilizes the `SHA256BlockBuilder` to generate 64 identical algorithmic rounds. It flattens these rounds into a single massive gate list and pushes it through the `QPUOS` pipeline. This tests the system's ability to handle memory management, deep scheduling, and large waveform JSON serialization without crashing.
+
+---
+
+## API Reference: `run_sha256.py`
+
+### Functions
+
+#### `def main()`
+No documentation provided.
+
+
+---
+
+## API Reference: `sha256_blocks.py`
+
+### Classes
+
+#### `class SHA256BlockBuilder`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self)`**: No documentation provided.
+- **`build_one_round(self, round_index)`**: SHA-256 has:
+- **`build_sha256(self, rounds)`**: No documentation provided.
+
+
+---
+
+## API Reference: `sha256_compiler.py`
+
+### Classes
+
+#### `class SHA256Compiler`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self)`**: No documentation provided.
+- **`compile_sha_blocks(self, block_list)`**: No documentation provided.
+

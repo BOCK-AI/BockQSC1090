@@ -27,3 +27,73 @@ Provides a quick-reference view of the latest automated verification reports, hi
 
 ### 5. 🧮 Run Custom Algorithm
 An interactive IDE built into the browser. You can type or paste custom `.algo` DSL scripts directly into a text area. Clicking "Run Algorithm" executes the script using the pure NumPy statevector simulator in the backend, printing the operation log and the final collapsed bitstring result directly to the UI.
+
+---
+
+## API Reference: `dashboard.py`
+
+### Functions
+
+#### `def load_json(path)`
+No documentation provided.
+
+#### `def smart_load(filename)`
+No documentation provided.
+
+#### `def apply_single_qubit_gate(state, gate, qubit, num_qubits)`
+No documentation provided.
+
+#### `def apply_cnot(state, control, target, num_qubits)`
+No documentation provided.
+
+#### `def parse_algo_text(text)`
+No documentation provided.
+
+#### `def execute_ops(ops, num_qubits)`
+No documentation provided.
+
+
+---
+
+## API Reference: `run_custom_algorithm.py`
+
+### Functions
+
+#### `def apply_single_qubit_gate(state, gate, qubit, num_qubits)`
+Applies a 1-qubit gate to the full statevector.
+
+#### `def apply_cnot(state, control, target, num_qubits)`
+Apply CNOT gate to statevector.
+
+#### `def load_algorithm(filename)`
+Reads a .algo file and returns a list of instructions.
+
+#### `def execute_algorithm(ops, num_qubits)`
+Simulates the circuit described by the operations list.
+
+#### `def measure_state(state, num_qubits)`
+Simulates measurement of all qubits.
+
+#### `def main()`
+No documentation provided.
+
+
+---
+
+## API Reference: `run_job_demo.py`
+
+### Functions
+
+#### `def main()`
+No documentation provided.
+
+
+---
+
+## API Reference: `run_qpu_os_demo.py`
+
+### Functions
+
+#### `def main()`
+No documentation provided.
+

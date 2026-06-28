@@ -24,3 +24,81 @@ The script produces detailed timestamped JSON reports (`verification_report_*.js
 
 > [!WARNING]
 > **Synthetic Data Notice**: Both the simulation and verification scripts currently utilize NumPy's random number generators (`np.random`) to produce statistically realistic outputs that mimic actual hardware distributions. They do not currently perform quantum mechanical physics simulations (e.g., via Lindblad master equations).
+
+---
+
+## API Reference: `quantum_processor_simulation.py`
+
+Quantum Processor Simulation (Modern Lightweight Version)
+=========================================================
+Replaces Qiskit-Metal + SciPy simulation with a pure-Numpy
+approximate physics model that produces IDENTICAL-style outputs
+to the original company simulation.
+
+This version:
+- Creates realistic qubit parameters
+- Generates single-qubit and two-qubit fidelities
+- Produces readout fidelity metrics
+- Computes benchmark metrics (Quantum Volume, RB)
+- Saves 6 JSON output files exactly like the original system
+
+Fully pipeline-compatible.
+
+### Functions
+
+#### `def save_json(filename, data)`
+No documentation provided.
+
+#### `def generate_circuit_parameters()`
+No documentation provided.
+
+#### `def simulate_single_qubit_gates()`
+No documentation provided.
+
+#### `def simulate_two_qubit_gates()`
+No documentation provided.
+
+#### `def simulate_readout_performance()`
+No documentation provided.
+
+#### `def generate_system_benchmarks(single, two, readout)`
+No documentation provided.
+
+
+---
+
+## API Reference: `quantum_processor_verification.py`
+
+Quantum Processor Verification and Testing Suite
+===============================================
+This module provides comprehensive verification and testing capabilities for the
+10-qubit quantum processor, including hardware validation, performance testing,
+and system integration verification.
+
+Author: QPU Development Team
+Date: August 2025
+
+### Classes
+
+#### `class QuantumProcessorVerification`
+Comprehensive verification and testing class
+
+**Methods:**
+
+- **`__init__(self)`**: Initialize verification suite
+- **`convert_numpy_bool(self, obj)`**: Convert numpy bool types to native Python bool for JSON serialization
+- **`run_full_verification_suite(self)`**: Execute complete verification test suite
+- **`verify_hardware_connectivity(self)`**: Verify hardware connectivity and basic functionality
+- **`verify_qubit_parameters(self)`**: Verify individual qubit parameters meet specifications
+- **`verify_gate_performance(self)`**: Verify quantum gate performance meets specifications
+- **`verify_system_timing(self)`**: Verify system timing and synchronization
+- **`verify_crosstalk_suppression(self)`**: Verify crosstalk and interference suppression
+- **`verify_system_integration(self)`**: Verify end-to-end system integration
+- **`run_performance_benchmarks(self)`**: Run standard quantum computing benchmarks
+- **`generate_verification_report(self, verification_duration)`**: Generate comprehensive verification report
+
+### Functions
+
+#### `def main()`
+Main verification execution function
+

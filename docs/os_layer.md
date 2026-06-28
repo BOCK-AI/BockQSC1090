@@ -22,3 +22,47 @@ When a circuit is submitted to the OS via `run_circuit()`, it undergoes the foll
 ## Extensibility
 
 The OS layer is designed to be highly modular. By swapping out the injected `executor` (which currently uses a mock software simulator), the exact same OS layer can interface directly with physical dilution refrigerator control electronics without changing the upper-level algorithm code.
+
+---
+
+## API Reference: `qpu_os.py`
+
+### Classes
+
+#### `class QPUOS`
+OS-layer controlling the full execution path:
+
+    circuit OR precompiled gate-list
+        → compile
+        → schedule
+        → waveform json
+        → execute pulses
+
+Works for:
+- small circuits
+- large SHA256-style algorithms (gate lists)
+- job manager
+
+**Methods:**
+
+- **`__init__(self, gate_engine, scheduler, executor)`**: No documentation provided.
+- **`run_circuit(self, circuit_str)`**: No documentation provided.
+- **`run_gate_list(self, gate_list)`**: No documentation provided.
+
+
+---
+
+## API Reference: `quantum_gates.py`
+
+### Classes
+
+#### `class QuantumGateImplementation`
+Converts logical gates into hardware-level pulse objects.
+Used by both small circuits and big-algorithm compiler.
+
+**Methods:**
+
+- **`__init__(self)`**: No documentation provided.
+- **`gate_to_pulses(self, gate)`**: Convert a gate dict into 1 or more Pulse objects.
+- **`compile_circuit(self, circuit_str)`**: Still used by old pipeline. Keeps compatibility.
+

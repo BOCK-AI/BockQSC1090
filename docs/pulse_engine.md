@@ -30,3 +30,148 @@ The `PulseScheduler` iterates through the list of generated pulses and assigns a
 ## Waveform Synthesis
 
 Finally, the `WaveformBuilder` (`waveform_builder.py`) takes the scheduled pulses and evaluates their `waveform` functions over the specified duration at a standard sampling rate (e.g., 2 GSa/s), producing the raw digital arrays that would be sent to the Arbitrary Waveform Generators (AWGs).
+
+---
+
+## API Reference: `batch_scheduler.py`
+
+### Classes
+
+#### `class BatchScheduler`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self, batch_size)`**: No documentation provided.
+- **`batch(self, scheduled_pulses)`**: No documentation provided.
+
+
+---
+
+## API Reference: `channels.py`
+
+### Classes
+
+#### `class Channel`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self, name)`**: No documentation provided.
+
+#### `class DriveChannel`
+No documentation provided.
+
+#### `class MeasureChannel`
+No documentation provided.
+
+#### `class FluxChannel`
+No documentation provided.
+
+
+---
+
+## API Reference: `execution_engine.py`
+
+### Classes
+
+#### `class PulseExecutor`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self, batch_size)`**: No documentation provided.
+- **`load_schedule(self, path)`**: No documentation provided.
+- **`execute(self)`**: No documentation provided.
+
+
+---
+
+## API Reference: `measurement.py`
+
+### Classes
+
+#### `class MeasurementEngine`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self, readout_error)`**: readout_error: probability of flipping the measured bit
+- **`measure_qubit(self, qubit_id)`**: Mock measurement of a qubit.
+- **`measure_all(self, num_qubits)`**: Measure all qubits.
+
+
+---
+
+## API Reference: `pulse.py`
+
+### Classes
+
+#### `class Pulse`
+No documentation provided.
+
+**Methods:**
+
+- **`sample(self, t)`**: No documentation provided.
+
+### Functions
+
+#### `def constant_wave(x)`
+No documentation provided.
+
+#### `def gaussian_wave(x, sigma)`
+No documentation provided.
+
+
+---
+
+## API Reference: `pulse_sequence.py`
+
+### Functions
+
+#### `def circuit_to_pulses(circuit)`
+No documentation provided.
+
+
+---
+
+## API Reference: `scheduler.py`
+
+### Classes
+
+#### `class ScheduledPulse`
+No documentation provided.
+
+#### `class PulseScheduler`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self, clock_resolution)`**: No documentation provided.
+- **`schedule(self, pulses)`**: No documentation provided.
+
+
+---
+
+## API Reference: `timing_engine.py`
+
+### Functions
+
+#### `def align_to_hardware_clock(schedule, clock)`
+No documentation provided.
+
+
+---
+
+## API Reference: `waveform_builder.py`
+
+### Classes
+
+#### `class WaveformBuilder`
+Converts scheduled pulses into raw sample waveforms.
+Output saved in a single JSON for execution engine.
+
+**Methods:**
+
+- **`build(scheduled_pulses, path)`**: No documentation provided.
+

@@ -41,3 +41,76 @@ You can bypass the OS layer and run `.algo` files directly using the standalone 
 python run_custom_algorithm.py --file test.algo
 ```
 This will output a step-by-step trace of the gate applications and the final simulated measurement bitstring.
+
+---
+
+## API Reference: `algorithm_runner.py`
+
+### Classes
+
+#### `class AlgorithmRunner`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self)`**: No documentation provided.
+- **`parse_text(self, text)`**: No documentation provided.
+
+
+---
+
+## API Reference: `big_algo_compiler.py`
+
+### Classes
+
+#### `class BigAlgoCompiler`
+No documentation provided.
+
+**Methods:**
+
+- **`compile_blocks(self, blocks)`**: Flatten block list into a single gate list.
+
+
+---
+
+## API Reference: `block_builder.py`
+
+### Classes
+
+#### `class BigAlgoBlockBuilder`
+No documentation provided.
+
+**Methods:**
+
+- **`build_single_block(self)`**: Returns one block of 4 gates.
+- **`chain_blocks(self, num_blocks)`**: No documentation provided.
+
+
+---
+
+## API Reference: `gate_validator.py`
+
+### Classes
+
+#### `class GateValidator`
+Simple rule-based validator for big algorithm gate lists.
+Ensures:
+  - allowed gates only
+  - qubit indices are valid (0–9 by default)
+  - duration exists
+
+**Methods:**
+
+- **`__init__(self, max_qubits, allowed_gates)`**: No documentation provided.
+- **`validate(self, gate_list)`**: No documentation provided.
+
+
+---
+
+## API Reference: `run_big_algorithm.py`
+
+### Functions
+
+#### `def main()`
+No documentation provided.
+

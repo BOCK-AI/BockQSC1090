@@ -25,3 +25,22 @@ High-level `.algo` execution.
 - **`run_algorithm(filepath)`**: Parses the `.algo` file at the given path, compiles it, and executes it via the OS layer.
 
 *For complete implementation details, parameters, and return types, please refer to the standard Python docstrings located within the source code files.*
+
+---
+
+## API Reference: `pretty_printer.py`
+
+### Functions
+
+#### `def print_header(title)`
+No documentation provided.
+
+#### `def print_section(title)`
+No documentation provided.
+
+#### `def print_list(items, indent)`
+No documentation provided.
+
+#### `def print_kv(key, value)`
+No documentation provided.
+

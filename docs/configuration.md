@@ -23,3 +23,13 @@ Defines routines such as `qubit_frequency_cal` and `T1_measurement`, specifying 
 
 ## 4. `config_loader.py`
 A Python utility class (`ConfigLoader`) that provides a simple key-based interface for securely parsing and loading the JSON configuration files into Python dictionaries.
+
+---
+
+## API Reference: `config.py`
+
+### Classes
+
+#### `class QPUConfig`
+No documentation provided.
+

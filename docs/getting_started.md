@@ -59,3 +59,27 @@ This will open a local web server (typically at `http://localhost:8501`) where y
 - View the 10-qubit processor design metadata and qubit frequencies.
 - Analyze simulated gate fidelities and randomized benchmarking results.
 - Write and execute custom `.algo` quantum programs in the browser.
+
+---
+
+## API Reference: `run_pipeline.py`
+
+10-Qubit Quantum Processor — Full Pipeline Runner (Production Version)
+---------------------------------------------------------------------
+
+This pipeline runs:
+1. Design generation (main_10qubit_design.py)
+2. KLayout processing (klayout_quantum_processor.py)
+3. System simulations (quantum_processor_simulation.py)
+4. Gate operations + calibration (quantum_gates.py)
+5. Verification tests (quantum_processor_verification.py)
+
+All outputs are saved to the correct folders for dashboard visualization.
+
+Author: QPU Development Team
+
+### Functions
+
+#### `def run_step(label, command)`
+No documentation provided.
+

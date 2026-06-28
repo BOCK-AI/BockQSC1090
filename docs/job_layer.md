@@ -41,3 +41,72 @@ job_id = manager.submit_job("H(0); X(1)")
 finished_id, result = manager.run_next()
 print(f"Job {finished_id} finished with result: {result}")
 ```
+
+---
+
+## API Reference: `job.py`
+
+### Classes
+
+#### `class Job`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self, circuit)`**: No documentation provided.
+- **`set_status(self, status)`**: No documentation provided.
+- **`set_result(self, result)`**: No documentation provided.
+
+
+---
+
+## API Reference: `job_manager.py`
+
+### Classes
+
+#### `class JobManager`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self, os_layer)`**: No documentation provided.
+- **`submit_job(self, circuit)`**: No documentation provided.
+- **`run_next(self)`**: Minimal job execution:
+- **`get_status(self, job_id)`**: No documentation provided.
+- **`get_result(self, job_id)`**: No documentation provided.
+- **`list_jobs(self)`**: No documentation provided.
+
+
+---
+
+## API Reference: `job_queue.py`
+
+### Classes
+
+#### `class JobQueue`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self)`**: No documentation provided.
+- **`submit(self, job)`**: No documentation provided.
+- **`next_job(self)`**: No documentation provided.
+- **`is_empty(self)`**: No documentation provided.
+
+
+---
+
+## API Reference: `job_store.py`
+
+### Classes
+
+#### `class JobStore`
+No documentation provided.
+
+**Methods:**
+
+- **`__init__(self)`**: No documentation provided.
+- **`add(self, job)`**: No documentation provided.
+- **`get(self, job_id)`**: No documentation provided.
+- **`update(self, job)`**: No documentation provided.
+

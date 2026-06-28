@@ -20,3 +20,48 @@ The Algorithm Blocks are implemented in pure Python using NumPy arrays for state
 ## Integration with the Pipeline
 
 Currently, the `algorithm_blocks/` are standalone mathematical demonstrations. The `block_composer.py` and `blocks.py` files contain experimental string-based gate representations intended to bridge these mathematical concepts to the `Big Algorithm Engine`, though this integration remains a work in progress.
+
+---
+
+## API Reference: `blocks.py`
+
+### Classes
+
+#### `class BlockLibrary`
+General-purpose modular algorithm blocks.
+
+**Methods:**
+
+- **`single_qubit(self, q)`**: No documentation provided.
+- **`rotation(self, q, theta)`**: No documentation provided.
+- **`two_qubit(self, gate, a, b)`**: No documentation provided.
+
+
+---
+
+## API Reference: `block_composer.py`
+
+### Classes
+
+#### `class BlockComposer`
+No documentation provided.
+
+**Methods:**
+
+- **`chain(self, blocks)`**: No documentation provided.
+- **`repeat(self, block, times)`**: No documentation provided.
+
+
+---
+
+## API Reference: `circuit_builder.py`
+
+### Classes
+
+#### `class CircuitBuilder`
+No documentation provided.
+
+**Methods:**
+
+- **`build(self, gate_list)`**: No documentation provided.
+
